@@ -39,17 +39,18 @@ Things you may want to cover:
 |email|string|null: false, foreign_key: true|
 |password|string|null: false, foreign_key: true|
 ### Association
-- has_many :comments
-- has_many :items
-- has_many :likes
-- has_one :user_evalutions
-- has_one :creditcard
-- has_one :points
-- has_one :profiles
-- has_one :to_do_lists
-- has_one :addresses
+- has_many :comments dependent: :destroy
+- has_many :items dependent: :destroy
 - has_many :items, through: :comments
 - has_many :items, through: :likes
+- has_many :likes dependent: :destroy
+- has_one :user_evalution dependent: :destroy
+- has_one :creditcard dependent: :destroy
+- has_one :point dependent: :destroy
+- has_one :profile dependent: :destroy
+- has_one :to_do_list dependent: :destroy
+- has_one :address dependent: :destroy
+
 
 
 ## adressesテーブル
@@ -173,9 +174,9 @@ Things you may want to cover:
 |shipping-area|string|null: false|
 ### Association
 - belongs_to :user
-- belongs_to :categorie
-- has_many :item-images
-- belongs_to :bland
+- belongs_to :categorie dependent: :destroy
+- has_many :item-images dependent: :destroy
+- belongs_to :bland dependent: :destroy
 - has_many :likes
 - has_many :comments
 - has_many :user_evalution
