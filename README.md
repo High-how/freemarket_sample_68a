@@ -29,15 +29,15 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|family_name|string|null: false, foreign_key: true|
-|first_name|string|null: false, foreign_key: true|
-|family_name_kana|string|null: false, foreign_key: true|
-|first_name_kana|string|null: false, foreign_key: true|
-|birth_year|string|null: false, foreign_key: true|
-|birth_month|string|null: false, foreign_key: true|
-|birth_day|string|null: false, foreign_key: true|
-|email|string|null: false, foreign_key: true|
-|password|string|null: false, foreign_key: true|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birth_year|string|null: false|
+|birth_month|string|null: false|
+|birth_day|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
 ### Association
 - has_many :comments dependent: :destroy
 - has_many :items dependent: :destroy
@@ -57,7 +57,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|phone__number|integer|null: false, unique: true|
+|phone_number|integer|null: false, unique: true|
 |postal_code|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
@@ -84,7 +84,7 @@ Things you may want to cover:
 |card_number|integer|null: false, unipue: true|
 |expiration_year|integer|null: false|
 |expiration_month|integer|null: false|
-|Security code|integer|null: false|
+|security_code|integer|null: false|
 ### Association
 - belongs_to :user
 
@@ -128,7 +128,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :evalutions
+- belongs_to :evalution
 
 
 ## commentsテーブル
@@ -158,28 +158,28 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |item-image_id|references|null: false, foreign_key: true|
-|bland_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |price|integer|null: false, foreign_key: true|
-|item-condition|text|null: false|
-|postage-payer|string|null: false|
-|postage-type|string|null: false|
-|trading-status|enum|null: false|
-|deal-closed-date|timestamp|null: false|
-|shipping-date|integer|null: false|
-|shipping-method|string|null: false|
-|shipping-area|string|null: false|
+|item_condition|text|null: false|
+|postage_payer|string|null: false|
+|postage_type|string|null: false|
+|trading_status|enum|null: false|
+|deal_closed_date|timestamp|null: false|
+|shipping_date|integer|null: false|
+|shipping_method|string|null: false|
+|shipping_area|string|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :categorie dependent: :destroy
 - has_many :item-images dependent: :destroy
-- belongs_to :bland dependent: :destroy
+- belongs_to :brand dependent: :destroy
 - has_many :likes
 - has_many :comments
-- has_many :user_evalution
+- has_many :user_evalutions
 - belongs_to :to_to_list
 - has_many :users, through: :comments
 - has_many :users, through: :likes
@@ -194,7 +194,7 @@ Things you may want to cover:
 - has_many :items
 
 
-## blandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -208,4 +208,4 @@ Things you may want to cover:
 |item_id|references|null: false, foreign_key: true|
 |url|string|null: false|
 ### Association
-- belongs_to :items
+- belongs_to :item
