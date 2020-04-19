@@ -202,7 +202,7 @@ Things you may want to cover:
 - has_many :items
 
 
-## item-imagesテーブル
+## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
