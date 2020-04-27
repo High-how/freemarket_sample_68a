@@ -1,0 +1,57 @@
+.item_details{
+  height: 3802px;
+  width: 100%;
+  background-color: yellow;
+
+  .header{
+    height: 100px;
+    background-color: yellowgreen;
+  }
+
+  .exhibition-item{
+    height: 895px;
+    background-color: red;
+  }
+
+  .item-link{
+    height: 14px;
+    background-color: khaki;
+  }
+
+  .social-media-box{
+    height: 138px;
+    background-color: black;
+  }
+
+  .other-items{
+    .user-items-box{
+      height: 700px;
+      background-color: blue;
+    }
+  
+    .other-items-box-head{
+      height: 30px;
+      background-color: fuchsia;
+    }
+  
+    .other-items{
+      height: 700px;
+      background-color: maroon;
+    }
+  }
+
+  .crumbs{
+    height: 49px;
+    background-color: rosybrown;
+  }
+
+  .commercial{
+    height: 260px;
+    background-color: goldenrod;
+  }
+
+  .footer{
+    height: 694px;
+    background-color: black;
+  }
+}
