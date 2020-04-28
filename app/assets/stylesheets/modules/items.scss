@@ -1,0 +1,586 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+//要素の高さ指定
+@mixin boxHeight($height){
+  height:$height;
+}
+
+//要素の横幅指定
+@mixin boxWidth($width){
+  width: $width;
+}
+
+//要素の縦横指定
+@mixin boxSize($height, $width){
+  height: $height;
+  width: $width;
+}
+
+//display: flex指定
+@mixin display{
+  display: flex;
+}
+
+
+//ヘッダー
+
+.header {
+  @include boxSize(100px, 100%);
+  padding: 0 200px;
+  &__inner {
+    @include boxSize(100px, 100%);
+    padding: 15px 0 0;
+    &__main {
+      @include display;
+      position: relative;
+      &__icon {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        .image {
+          @include boxSize(40px, 140px);
+        }
+      }
+      &__search {
+        @include boxWidth(100%);
+        margin-top: 3px;
+        &__form {
+          &__input {
+            @include display;
+            &__box {
+              @include boxWidth(100%);
+            }
+            .search-input {
+              @include boxHeight(36px);
+              @include boxWidth(100%);
+              padding: 0 0 0 5px;
+            }
+          }
+          &__btn {
+            @include boxSize(36px, 36px);
+            background-color: #3CCACE;
+            padding: 8px;
+            .image {
+              @include boxSize(20px, 20px);
+            }
+          }
+        }
+      }
+    }
+    &__nav {
+      @include display;
+      font-size: 14px;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      &__left {
+        @include display;
+        @include boxWidth(217px);
+        &__category {
+          margin-right: 43px;
+        }
+      }
+      &__right {
+        @include display;
+        @include boxWidth(155px);
+        &__new {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}
+
+//メイン
+
+.main {
+  background-color: #f8f8f8;
+  &__main-visual {
+    @include boxSize(560px, 100%);
+    @include display;
+    z-index: 1;
+    background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: relative;
+    padding: 0 60px;
+    align-items: center;
+    margin-top: 10px;
+    &__content {
+      @include boxWidth(100%);
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 100px 0 0 0;
+      &__sub-title {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 60px;
+        line-height: 1.2;
+        color: #fff;
+      }
+      &__text {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 18px;
+        color: #fff;
+        line-height: 1.77778;
+        margin: 16px 0 0 0;
+      }
+      &__btn {
+        @include display;
+        margin: 24px 0 0 0;
+        &__app {
+          margin-right: 10px;
+          .image {
+            @include boxSize(54px, 180px);
+          }
+        }
+        &__google {
+          .image {
+            @include boxSize(54px, 180px);
+          }
+        }
+      }
+    }
+  }
+  &__top-introduction {
+    padding: 60px 20px;
+    &__sub-title {
+      text-align: center;
+      font-size: 26px;
+      line-height: 1.4;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+    &__sub-title::after {
+      content: "";
+      @include boxSize(4px, 70px);
+      background-color: #3CCACE;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &__lists {
+      @include boxWidth(100%);
+      @include display;
+      text-align: center;
+      max-width: 1020px;
+      margin: 0 auto;
+      &__list {
+        @include boxWidth(30%);
+        @include display;
+        margin: 16px 5% 0 0;
+        text-align: left;
+        flex-direction: column;
+        align-items: center;
+        &__pict {
+          position: relative;
+          margin-bottom: 20px;
+          &__num {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 4%;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 5px 0 0;
+            padding: 5px 20px;
+            background-color: #3CCACE;
+            color: #fff;
+          }
+          .image {
+            @include boxWidth(100%);
+            vertical-align: bottom;
+          }
+        }
+        &__text {
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 50px;
+          margin: 0 0 0 2px;
+          span {
+            color: #3CCACE;
+          }
+        }
+        &__description {
+          font-size: 18px;
+          line-height: 1.5;
+          margin: 16px 0 0;
+        }
+      }
+      &__list-last {
+        @include boxWidth(30%);
+        @include display;
+        text-align: left;
+        flex-direction: column;
+        align-items: center;
+        margin: 16px 0 0;
+        &__pict {
+          position: relative;
+          margin-bottom: 20px;
+          &__num {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 4%;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 5px 0 0;
+            padding: 5px 20px;
+            background-color: #3CCACE;
+            color: #fff;
+          }
+          .image {
+            @include boxWidth(100%);
+            vertical-align: bottom;
+          }
+        }
+        &__text {
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 50px;
+          margin: 0 0 0 2px;
+          span {
+            color: #3CCACE;
+          }
+        }
+        &__description {
+          font-size: 18px;
+          line-height: 1.5;
+          margin: 16px 0 0;
+        }
+      }
+    }
+  }
+  &__sub-visual {
+    @include boxHeight(400px);
+    @include display;
+    background-image: url(/assets/bg-topMiddleDl-pict.jpg);
+    background-position: bottom right;
+    background-size: cover;
+    align-items: center;
+    &__inner {
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-align: left;
+      max-width: 1040px;
+      @include boxWidth(100%);
+      margin: 0 auto;
+      &__title {
+        font-size: 27px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      &__text {
+        font-size: 18px;
+        margin: 20px 0 30px;
+        line-height: 1.5;
+      }
+      &__btn {
+        @include display;
+        &__app {
+          margin-right: 10px;
+          .image {
+            @include boxSize(54px, 180px);
+          }
+        }
+        &__google {
+          .image {
+            @include boxSize(54px, 180px);
+          }
+        }
+      }
+    }
+  }
+  &__key-features {
+    padding: 60px 100px;
+    background-color: #fff;
+    &__head {
+      font-size: 27px;
+      text-align: center;
+      margin: 0 0 40px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+    &__head::after {
+      content: "";
+      @include boxSize(4px, 70px);
+      background-color: #3CCACE;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &__items {
+      @include display;
+      @include boxWidth(100%);
+      max-width: calc(1040px + 20px);
+      margin: 0 auto;
+      flex-wrap: wrap;
+      &__item {
+        @include display;
+        @include boxWidth(calc(1 / 3 * 100%));
+        flex-direction: column;
+        text-align: center;
+        padding: 0 20px;
+        &__img {
+          @include boxWidth(70%);
+          margin: 0 auto;
+          line-height: 120px;
+          .image {
+            @include boxWidth(100%);
+            vertical-align: bottom;
+          }
+        }
+        &__sub-title {
+          margin: 38px 0 10px;
+          font-size: 19px;
+          font-weight: bold;
+        }
+        &__text {
+          margin: 0 0 40px;
+          font-size: 17px;
+          font-weight: 200;
+          text-align: left;
+        }
+      }
+    }
+  }
+  &__pickup {
+    @include boxHeight(100%);
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    &__head {
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    &__box {
+      &__head {
+        text-align: center;
+        a {
+          font-size: 24px;
+          text-decoration: none;
+          color: #3CCACE;
+          font-weight: bold;
+        }
+      }
+      &__lists {
+        @include boxWidth(780px);
+        @include display;
+        margin: 26px auto;
+        justify-content: space-around;
+        &__list {
+          @include boxWidth(220px);
+          display: inline-block;
+          &__img {
+            @include boxSize(150px, 220px);
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            .image {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+          &__body {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            &__name {
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
+            }
+            &__data {
+              font-size: 16px;
+              &__box {
+                @include display;
+                align-items: center;
+                justify-content: space-between;
+              }
+              &__tax {
+                font-size: 10px;
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//バーナー
+
+.app-banner {
+  background-image: url(/assets/bg-appBanner-pict.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  &__inner {
+    color: #fff;
+    text-align: center;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__icon {
+      @include boxWidth(100%);
+      @include display;
+      justify-content: center;
+      margin: 20px auto 0;
+      &__app {
+        margin-right: 10px;
+        .image {
+          @include boxSize(54px, 180px);
+        }
+      }
+      &__google {
+        .image {
+          @include boxSize(54px, 180px);
+        }
+      }
+    }
+  }
+}
+
+//フッター
+
+.footer {
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  &__contents {
+    @include display;
+    max-width: 840px;
+    margin: 0 auto;
+    &__content {
+      @include boxWidth(calc(1 / 3 * 100%));
+      @include display;
+      flex-direction: column;
+      margin: 0 2% 0 0;
+      &__head {
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 32px;
+      }
+    }
+  }
+  &__logo {
+    @include boxWidth(100%);
+    max-width: 160px;
+    margin: 0 auto;
+    .image {
+      @include boxSize(46px, 160px);
+    }
+  }
+  &__name {
+    font-size: 14px;
+  }
+}
+
+//出品カメラlogo
+
+.exhibition-btn {
+  @include boxWidth(120px);
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 12px;
+  &__text {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__icon {
+    .image {
+      @include boxSize(54px, 54px);
+    }
+  }
+}
+
+//カテゴリーメニューバー
+
+ul.menu li {
+  z-index: 5;
+  display: inline-block;
+  list-style-type: none;
+  position: relative;
+}
+ul.menu a {
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+ul.menu ul {
+  background-color: #ffffff;
+  margin: 0px;
+  padding: 0px;
+  display: none;
+  position: absolute;
+}
+ul.menu ul li {
+  @include boxWidth(135px);
+  border-bottom: inset 1px #EEE;
+}
+ul.menu ul li a {
+  line-height: 35px;
+  text-align: left;
+  padding-left: 5px;
+  font-weight: normal;
+}
+
+ul.menu ul ul {
+  @include boxWidth(135px);
+  margin: 0px;
+  padding: 0px;
+  display: none;
+  position: absolute;
+  top: -1px;
+  left: 100%;
+}
