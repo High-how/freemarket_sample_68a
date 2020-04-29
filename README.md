@@ -31,8 +31,8 @@ Things you may want to cover:
 |nickname|string|null: false|
 |family_name|string|null: false|
 |first_name|string|null: false|
-|family_name_kana|string|null: false|
-|first_name_kana|string|null: false|
+|family_name_reading|string|null: false|
+|first_name_reading|string|null: false|
 |birth_year|string|null: false|
 |birth_month|string|null: false|
 |birth_day|string|null: false|
@@ -41,19 +41,18 @@ Things you may want to cover:
 ### Association
 - has_many :comments dependent: :destroy
 - has_many :items dependent: :destroy
-- has_many :items, through: :comments
 - has_many :items, through: :likes
 - has_many :likes dependent: :destroy
-- has_one :user_evalution dependent: :destroy
+- has_many :todo_lists dependent: :destroy
+- has_many :evaluations dependent: :destroy
 - has_one :creditcard dependent: :destroy
 - has_one :point dependent: :destroy
 - has_one :profile dependent: :destroy
-- has_one :to_do_list dependent: :destroy
 - has_one :address dependent: :destroy
 
 
 
-## adressesテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -77,11 +76,11 @@ Things you may want to cover:
 - belongs_to :user
 
 
-## creditcardテーブル
+## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|card_number|integer|null: false, unipue: true|
+|card_number|string|null: false, unipue: true|
 |expiration_year|integer|null: false|
 |expiration_month|integer|null: false|
 |security_code|integer|null: false|
@@ -99,44 +98,33 @@ Things you may want to cover:
 - belongs_to :user
 
 
-## to_do_listsテーブル
+## todo_listsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|items_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 |list|text|null: false|
 ### Association
 - belongs_to :user
 - has_many :items
 
-
-## evalutionsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|evalution|string|null: false|
-### Association
-- has_many :user_evalutions
-
-
-## user_evalutionsテーブル
+## evaluationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|user_evalution_id|references|null: false, foreign_key: true|
+|evaluation_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 |review|text|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :evalution
-
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|review|text|null: false|
+|comment|text|null: false|
 |user_id|references|null: false, foreign_key: true|
-|buyer_id|foreign_key: true|
+|buyer_id|references|foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 |created_at|timestamp|null: false|
 ### Association
@@ -157,7 +145,6 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item-image_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
@@ -172,16 +159,17 @@ Things you may want to cover:
 |shipping_date|integer|null: false|
 |shipping_method|string|null: false|
 |shipping_area|string|null: false|
+|size|integer|null: false|
+|introduction|text|null: false|
 ### Association
 - belongs_to :user
-- belongs_to :categorie dependent: :destroy
-- has_many :item-images dependent: :destroy
+- belongs_to :category dependent: :destroy
+- has_many :item_images dependent: :destroy
 - belongs_to :brand dependent: :destroy
 - has_many :likes
 - has_many :comments
-- has_many :user_evalutions
-- belongs_to :to_to_list
-- has_many :users, through: :comments
+- has_many :evaluations
+- belongs_to :toto_list
 - has_many :users, through: :likes
 
 
