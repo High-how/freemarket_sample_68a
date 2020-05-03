@@ -1,0 +1,22 @@
+.new-header
+  %h1.new-header__icon
+    = link_to "#" do
+      = image_tag "logo.png", class:"new-header__icon__logo", alt:"FURIMA"
+
+  %nav.new-header__bar
+    %ol.new-header__bar__box
+
+      %li.through#through
+        会員情報
+        .progress
+        .progress__bars
+
+      %li.active#active
+        商品送付先住所
+        .progress
+        .progress__bars
+
+      %li.end#end
+        完了
+        .progress
+        .progress__bars
