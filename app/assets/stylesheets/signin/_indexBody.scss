@@ -1,0 +1,104 @@
+@mixin a{
+  text-decoration: none;
+  color: #fff;
+}
+
+@mixin i{
+  width: 20px;
+  height: 16px;
+}
+
+@mixin icon{
+  left: 16px;
+  font-size: 26px;
+  position: absolute;
+}
+
+@mixin FaceGoo{
+  position: relative;
+  margin: 16px 0 0;
+}
+
+.main{
+  display: block;
+  background-color: #f5f5f5;
+  width: 100%;
+  &__center{
+    width: 700px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #ffff;
+    &__up{
+      font-size: 22px;
+      padding: 32px;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__down{
+      padding: 40px 40px 64px;
+      border-top: 1px solid #f5f5f5;
+      width: 100%;
+      &__centerbox{
+        max-width: 343px;
+        height: 182px;
+        margin: 0 auto;
+        &__default{
+          border-radius: 4px;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          cursor: pointer;
+          text-align: center;
+          &__mail{
+            background-color: #3CCACE;
+            position: relative;
+            a{
+              @include a;
+            }
+            &__icon{
+              color: #fff;
+              @include icon;
+              i{
+                @include i;
+              }
+            }
+          }
+          &__facebook{
+            @include FaceGoo;
+            background: #385185;
+            a{
+              @include a;
+            }
+            &__icon{
+              color: #fff;
+              @include icon;
+              i{
+                @include i;
+              }
+            }
+          }
+          &__google{
+            @include FaceGoo;
+            background: #fff;
+            border: #979797 solid 1px;
+            a{
+              text-decoration: none;
+              color: #333;
+            }
+            &__icon{
+              color: blue;
+              @include icon;
+              i{
+                @include i;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

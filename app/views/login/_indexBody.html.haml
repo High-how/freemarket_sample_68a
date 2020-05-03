@@ -1,0 +1,40 @@
+.login-main
+  .login-main__center
+
+    .login-main__center__account
+      %p アカウントをお持ちでない方はこちら
+      .login-main__center__account__no
+        = link_to signin_index_path do
+          新規会員登録
+
+    .login-main__center__inner
+      .login-main__center__inner__default
+    
+        .login-main__center__inner__default__facebook
+          = link_to "#"do
+            .login-main__center__inner__default__facebook__icon
+              = icon('fab', 'facebook-square')
+            .login-main__center__inner__default__facebook__text
+              Facebookでログイン
+
+        .login-main__center__inner__default__google
+          = link_to "#" do
+            .login-main__center__inner__default__google__icon
+              = icon('fab', 'google')
+            .login-main__center__inner__default__google__text
+              Googleでログイン
+
+    .login-main__center__login
+      .login-main__center__login__box
+        %input.login-main__center__login__box__form{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}
+          .login-main__center__login__box__form__text
+      
+      .login-main__center__login__boxs
+        %input.login-main__center__login__boxs__form{:name => "password", :placeholder => "パスワード", :type => "password", :value => ""}
+
+      .login-main__center__login__boxs
+        %button.login-main__center__login__boxs__submit{:type => "submit"} ログイン
+
+      .login-main__center__login__less
+        = link_to "#" do
+          パスワードをお忘れの方
