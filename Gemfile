@@ -73,3 +73,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
+gem 'jquery-validation-rails'
+gem 'devise'
+gem 'pry-rails'
