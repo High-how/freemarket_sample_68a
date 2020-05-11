@@ -61,7 +61,6 @@
         &__form-group{
           margin: 0;
           width: 100%;
-          height: 70px;
           label{
             @include label;
           }
@@ -71,16 +70,15 @@
           .form-nick{
             @include form-etc;
           }
-          .error-text{
-            @include error-text;
-            li{
-              margin: 8px 0 0;
-            }
+          input.invalid { 
+            border: #ea352d 1px solid;
+          }
+          input.valid {
+            border: #3CCACE 1px solid; 
           }
         }
         &__form-groups{
           @include form;
-          height: 70px;
           label{
             @include label;
           }
@@ -90,11 +88,11 @@
           .form-mail{
             @include form-etc;
           }
-          .error-text{
-            @include error-text;
-            li{
-              margin: 8px 0 0;
-            }
+          input.invalid { 
+            border: #ea352d 1px solid;
+          }
+          input.valid {
+            border: #3CCACE 1px solid; 
           }
         }
         &__form-password{
@@ -116,21 +114,19 @@
             color: #888;
             font-size: 14px;
           }
-          .error-text{
-            @include error-text;
-            li{
-              margin: 8px 0 0;
-            }
+          input.invalid { 
+            border: #ea352d 1px solid;
+          }
+          input.valid {
+            border: #3CCACE 1px solid; 
           }
           .check-box{
             margin: 16px 0 0;
             position: relative;
             font-size: 0;
-            .check-pass{
-              display: none;
-            }
-            .icon{
+            #check{
               position: absolute;
+              top: 3px;
               left: 0;
               z-index: 1;
               width: 20px;
@@ -144,6 +140,7 @@
               color: #fff;
               vertical-align: middle;
               padding-top: 2px;
+              transform: scale(1.5);
             }
             label{
               position: relative;
@@ -183,7 +180,6 @@
         }
         &__form-name{
           @include form;
-          height: 70px;
           &__div{
             width: 100%;
             label{
@@ -204,11 +200,11 @@
             line-height: 1.5;
             font-size: 16px;
           }
-          .error-text{
-            @include error-text;
-            li{
-              margin: 8px 0 0;
-            }
+          input.invalid { 
+            border: #ea352d 1px solid;
+          }
+          input.valid {
+            border: #3CCACE 1px solid; 
           }
         }
         &__form-birth{
@@ -229,11 +225,32 @@
               background: #fff;
               &__icon{
                 position: absolute;
-                right: 12px;
-                top: 12%;
+                right: 7px;
+                top: 14%;
                 z-index: 2;
                 color: #888;
                 font-size: 25px;
+              }
+              select::-ms-expand {
+                display: none;
+              }
+              select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding: 0 10px;
+                border-color: #3CCACE;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                -webkit-appearance: none;
               }
               &__default{
                 padding: 0 10px;
@@ -250,15 +267,15 @@
                 cursor: pointer;
                 -webkit-appearance: none;
               }
+              select.invalid { 
+                border: #ea352d 1px solid;
+              }
+              select.valid {
+                border: #3CCACE 1px solid; 
+              }
             }
             &__span{
               margin: 0 2px;
-            }
-          }
-          .error-text{
-            @include error-text;
-            li{
-              margin: 8px 0 0;
             }
           }
         }
@@ -316,4 +333,19 @@
       }
     }
   }
+}
+
+#user_nickname-error, #user_email-error, #user_password-error, #user_password_confirmation-error, #user_family_name-error, #user_first_name-error, #user_family_name_reading-error, #user_first_name_reading-error, #user_birth_year-error, #user_birth_month-error, #user_birth_day-error {
+  color: #ea352d;
+  line-height: 1.5;
+  font-size: 14px;
+  margin-top: 8px;
+  list-style: none;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+  outline: none;
+  border-color: #0098E8;
 }

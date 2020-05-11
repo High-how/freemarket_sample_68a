@@ -98,9 +98,17 @@
           = link_to "#" do
             ブランド
       .header__inner__nav__right
-        .header__inner__nav__right__login
-          = link_to login_index_path do
-            ログイン
-        .header__inner__nav__right__new
-          = link_to signin_index_path do
-            新規会員登録
+        - if user_signed_in?
+          .header__inner__nav__right__login
+            = link_to "#" do
+              マイページ
+          .header__inner__nav__right__new
+            = link_to destroy_user_session_path, method: :delete do
+              ログアウト
+        - else
+          .header__inner__nav__right__login
+            = link_to new_user_session_path do
+              ログイン
+          .header__inner__nav__right__new
+            = link_to new_user_registration_path do
+              新規会員登録

@@ -1,0 +1,100 @@
+.wrapper
+  .address-header
+    %h1.address-header__icon
+      = link_to "#" do
+        = image_tag "logo.png", class:"address-header__icon__logo", alt:"FURIMA"
+
+    %nav.address-header__bar
+      %ol.address-header__bar__box
+
+        %li.address-through#address-through
+          会員情報
+          .progress
+          .progress__bars
+
+        %li.address-active#address-active
+          商品送付先住所
+          .progress
+          .progress__bars
+
+        %li.address-end#address-end
+          完了
+          .progress
+          .progress__bars
+
+  .send-new
+    .send-new__main
+      .send-new__main__top
+        %h2 商品送付先住所
+      
+      .send-new__main__middle
+        = form_with model: @address, id: "form_address", local: true do |f|
+          = render "devise/shared/error_messages", resource: @address
+          #send-new__main__middle__center.send-new__main__middle__center
+
+            .send-new__main__middle__center__form-name
+              .send-new__main__middle__center__form-name__div
+                = f.label :name_kanji, "お名前（全角）"
+                %span.form-box 必須
+              = f.text_field :family_name, class: "family_name", placeholder: "例） 山田"
+              = f.text_field :first_name, class: "family_name", placeholder: "例） 太郎"
+              %ul.error-text
+                %li#error.error-family_name
+
+            .send-new__main__middle__center__form-name
+              .send-new__main__middle__center__form-name__div
+                = f.label :name_kana,"お名前（カナ）"
+                %span.form-box 必須
+              = f.text_field :family_name_reading, class: "family_name", placeholder: "例） ヤマダ"
+              = f.text_field :first_name_reading, class: "family_name", placeholder: "例） タロウ"
+              %ul.error-text
+                %li#error.error-family_reading
+
+            
+            .send-new__main__middle__center__form-groups
+              = f.label :postal_code,"郵便番号"
+              %span.form-box 必須
+              = f.text_field :postal_code, class: "family_name", placeholder: "例） 123-4567", maxlength:'8' 
+              %ul.error-text
+                %li#post-error.post-error
+
+            .send-new__main__middle__center__form-groups
+              = f.label :prefecture,"都道府県"
+              %span.form-box 必須
+              .select
+                .select__wrap
+                  .select__wrap__icon
+                    = icon('fas', 'angle-down')
+                  = f.select :prefecture, Address.prefectures.keys, class: "select__wrap__default"
+              %ul.error-text
+                %li#address-error.address-error
+
+            .send-new__main__middle__center__form-groups
+              = f.label :city,"市町村"
+              %label 
+              %span.form-box 必須
+              = f.text_field :city, class: "family_name", placeholder: "例） 名古屋市中区栄"
+              %ul.error-text
+                %li#city-error.city-error
+
+            .send-new__main__middle__center__form-groups
+              = f.label :address,"番地"
+              %span.form-box 必須
+              = f.text_field :address, class:"family_name", placeholder: "例） 3丁目13-20"
+              %ul.error-text
+                %li#number-error.number-error
+
+            .send-new__main__middle__center__form-groups
+              = f.label :building_name,"建物名"
+              %span.form-boxs 任意
+              = f.text_field :building_name, class:"family_name", placeholder: "例） 栄センタービル 3F"
+
+            .send-new__main__middle__center__form-groups
+              = f.label :phone_number,"お届け先電話番号"
+              %span.form-boxs 任意
+              = f.text_field :phone_number, class:"family_name", placeholder: "例） 09012345678"
+
+            .send-new__main__middle__down
+              = f.submit '登録', class:"send-new__main__middle__down__btn", url: "addresses_path", method: :post
+
+  = render partial: 'signin/footer'

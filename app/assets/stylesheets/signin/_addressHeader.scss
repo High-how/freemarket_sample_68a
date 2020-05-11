@@ -1,0 +1,79 @@
+.address-header{
+  height: 128px;
+  text-align: center;
+  display: block;
+  &__icon{
+    margin: 40px 0 0;
+    display: inline-block;
+    width: 193px;
+    height: 49px;
+    &__logo{
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin: 0 8px 0 0;
+    }
+  }
+  &__bar{
+    padding: 40px 0 0 44px;
+    border: 0;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0;
+    text-align: center;
+    &__box{
+      margin: 0;
+      li{
+        margin: 0 40px 0 0;
+        padding: 0;
+        position: relative;
+        z-index: 40;
+        display: inline-block;
+        min-width: 60px;
+        font-size: 12px;
+        color: gray;
+        .progress{
+          position: absolute;
+          left: 40%;
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: gray;
+          border-radius: 50%;
+          z-index: 30;
+        }
+      }
+    }
+  }
+}
+
+.progress__bars{
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  bottom: 5px;
+  display: block;
+  width: 110px;
+  height: 2px;
+  background: gray;
+  z-index: 10;
+}
+
+.address-end .progress__bars{
+  width: 0px;
+}
+
+#address-through{
+  color: grey;
+}
+
+#address-active{
+  color: #3CCACE;
+  .progress{
+    background: #3CCACE;
+  }
+}
+#address-through .progress__bars{
+  background: #3CCACE;
+ }
