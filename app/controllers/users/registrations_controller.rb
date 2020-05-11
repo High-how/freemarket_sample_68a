@@ -31,7 +31,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     @user.build_address(@address.attributes)
     @user.save
-    # binding.pry
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
     render 'devise/registrations/create_address'
