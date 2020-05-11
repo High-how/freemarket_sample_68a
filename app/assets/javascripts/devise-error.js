@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function () {
-  // メソッドの定義
   var methods = {
-    email: function (value, element) { // メールアドレスの正規表現
+    email: function (value, element) { 
       console.log(element)
       return this.optional(element) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(value);
     },
