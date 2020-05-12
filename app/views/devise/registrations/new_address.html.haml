@@ -38,8 +38,8 @@
                 %span.form-box 必須
               = f.text_field :family_name, class: "family_name", placeholder: "例） 山田"
               = f.text_field :first_name, class: "family_name", placeholder: "例） 太郎"
-              %ul.error-text
-                %li#error.error-family_name
+              #error-family_name
+              #error-first_name
 
             .send-new__main__middle__center__form-name
               .send-new__main__middle__center__form-name__div
@@ -47,8 +47,8 @@
                 %span.form-box 必須
               = f.text_field :family_name_reading, class: "family_name", placeholder: "例） ヤマダ"
               = f.text_field :first_name_reading, class: "family_name", placeholder: "例） タロウ"
-              %ul.error-text
-                %li#error.error-family_reading
+              #error-family_reading
+              #error-first_reading
 
             
             .send-new__main__middle__center__form-groups
