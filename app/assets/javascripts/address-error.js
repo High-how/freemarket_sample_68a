@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function () {
       return this.optional(element) || /^[^\x01-\x7E]$/i.test(value);
     },
     postal_code: function (value, element) { 
-      return this.optional(element) || /^[0-9!-/:-@¥[-`{-~]*$/i.test(value);
+      return this.optional(element) || /^\d{3}-\d{4}$/i.test(value);
     },
   }
 
