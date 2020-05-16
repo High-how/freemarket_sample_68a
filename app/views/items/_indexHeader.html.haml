@@ -100,7 +100,7 @@
       .header__inner__nav__right
         - if user_signed_in?
           .header__inner__nav__right__login
-            = link_to "#" do
+            = link_to user_path(current_user) do
               マイページ
           .header__inner__nav__right__new
             = link_to destroy_user_session_path, method: :delete do

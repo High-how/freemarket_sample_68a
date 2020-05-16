@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :login, only:[:index]
   resources :items, only: [:new] do
   end
+  resources :users, only: [:index, :show, :new] do
+  end
 end
