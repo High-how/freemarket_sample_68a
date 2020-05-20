@@ -1,0 +1,147 @@
+.exhibition-item-container
+  .exhibition-item
+    .exhibition-item__name
+      すーぱーぷよぷよ
+      .exhibition-item-transparent
+    .exhibition-item__wording
+      『すーぱーぷよぷよ』は、101回の取引実績を持つ
+      %a{href: '#'}おたんこなす
+      さんから出品されました。
+      %a{href: '#'}メーカー名
+      %a{href: '#'}（カテゴリー/カテゴリー）
+      の商品で、２〜３日で発送されます。
+    .exhibition-item__main-content
+      .exhibition-item__main-content__item-photos
+        .exhibition-item__main-content__item-photos__choice-photo
+          = image_tag "icon-01.png", class:"image", alt:"logo"
+        .exhibition-item__main-content__item-photos__other-photos
+          .exhibition-item__main-content__item-photos__other-photos__photo
+            = image_tag "icon-03.png", class:"image", alt:"logo"
+          .exhibition-item__main-content__item-photos__other-photos__photo
+            = image_tag "icon-01.png", class:"image", alt:"logo"
+          .exhibition-item__main-content__item-photos__other-photos__photo
+            = image_tag "icon-03.png", class:"image", alt:"logo"
+          .exhibition-item__main-content__item-photos__other-photos__photo
+            = image_tag "icon-01.png", class:"image", alt:"logo"
+          .exhibition-item__main-content__item-photos__other-photos__photo
+            = image_tag "icon-03.png", class:"image", alt:"logo"
+          .exhibition-item__main-content__item-photos__other-photos__photo
+            = image_tag "icon-01.png", class:"image", alt:"logo"
+          .exhibition-item__main-content__item-photos__other-photos__photo
+            = image_tag "icon-03.png", class:"image", alt:"logo"
+          .exhibition-item__main-content__item-photos__other-photos__photo
+            = image_tag "icon-01.png", class:"image", alt:"logo"
+      .exhibition-item__main-content__tbody
+        .exhibition-item__main-content__tbody__exhibitor-box
+          .exhibition-item__main-content__tbody__exhibitor-box__exhibitor
+            出品者
+          .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value
+            .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-name
+              = link_to "#" , class: "exhibitor-name" do
+                おたんこなす
+            .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box
+              .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box__good
+                .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box__good__icon
+                  = icon('fas', 'laugh')
+                .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box__good__count
+                  75
+              .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box__normal
+                .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box__normal__icon
+                  = icon('fas', 'meh')
+                .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box__normal__count
+                  0
+              .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box__bad
+                .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box__bad__icon
+                  = icon('fas', 'frown')
+                .exhibition-item__main-content__tbody__exhibitor-box__exhibitor-value__exhibitor-evaluation-box__bad__count
+                  1
+
+
+        .exhibition-item__main-content__tbody__category-box
+          .exhibition-item__main-content__tbody__category-box__category
+            カテゴリー
+          .exhibition-item__main-content__tbody__category-box__category-value
+            .exhibition-item__main-content__tbody__category-box__category-value__category-1
+              = link_to "#" , class: "category-1" do
+                メンズ
+            .exhibition-item__main-content__tbody__category-box__category-value__category-2
+              = link_to "#" , class: "category-2" do
+                = icon('fas', 'chevron-right')
+                靴
+            .exhibition-item__main-content__tbody__category-box__category-value__category-3
+              = link_to "#" , class: "category-3" do
+                = icon('fas', 'chevron-right')
+                スニーカー
+
+
+
+
+
+        .exhibition-item__main-content__tbody__brand-box
+          .exhibition-item__main-content__tbody__brand-box__bland
+            ブランド
+          .exhibition-item__main-content__tbody__brand-box__bland-value
+            ナイキ
+        .exhibition-item__main-content__tbody__item-size-box
+          .exhibition-item__main-content__tbody__item-size-box__item-size
+            商品のサイズ
+          .exhibition-item__main-content__tbody__item-size-box__item-size-value
+            2m
+        .exhibition-item__main-content__tbody__item-status-box
+          .exhibition-item__main-content__tbody__item-status-box__item-status
+            商品の状態
+          .exhibition-item__main-content__tbody__item-status-box__item-status-value
+            新品・未使用
+        .exhibition-item__main-content__tbody__delivery-fee-burden-box
+          .exhibition-item__main-content__tbody__delivery-fee-burden-box__delivery-fee-burden
+            配送料の負担
+          .exhibition-item__main-content__tbody__delivery-fee-burden-box__delivery-fee-burden-value
+            送料込み（出品者負担）
+        .exhibition-item__main-content__tbody__delivery-method-box
+          .exhibition-item__main-content__tbody__delivery-method-box__delivery-method
+            配送方法
+          .exhibition-item__main-content__tbody__delivery-method-box__delivery-method-value
+            クロネコヤマト
+        .exhibition-item__main-content__tbody__shipping-area-box
+          .exhibition-item__main-content__tbody__shipping-area-box__shipping-area
+            配送元地域
+          .exhibition-item__main-content__tbody__shipping-area-box__shipping-area-value
+            地球
+        .exhibition-item__main-content__tbody__date-of-shipment-box
+          .exhibition-item__main-content__tbody__date-of-shipment-box__date-of-shipment
+            発送日の目安
+          .exhibition-item__main-content__tbody__date-of-shipment-box__date-of-shipment-value
+            1~2日で発送
+    .exhibition-item__price-box
+      .exhibition-item__price-box__price
+        ¥4,800
+      .exhibition-item__price-box__tax
+        （税込み）
+      .exhibition-item__price-box__postage-included
+        送料込み
+    .exhibition-item__buy-btn
+      = link_to "#" , class: "item-buy-btn" do
+        購入画面に進む
+    .exhibition-item__description
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      %pああああああああああああ
+      .exhibition-item__description__left-button
+        .exhibition-item__description__left-button__icon
+          = icon('far', 'heart')
+        .exhibition-item__description__left-button__icon__like
+          いいね！
+        .exhibition-item__description__left-button__icon__count
+          2
