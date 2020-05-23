@@ -4,9 +4,6 @@ $(document).on('turbolinks:load',function() {
   var month = time.getMonth() + 1;
   var date = time.getDate();
 
-  var selected_year = document.getElementById("user_birth_year").value;
-  var selected_month = document.getElementById("user_birth_month").value;
-
   for (var i = year; i >= 1900 ; i--) {
       $('#user_birth_year').append('<option value="' + i + '">' + i + '</option>');
   }
