@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+//要素の高さ指定
+@mixin boxHeight($height){
+  height:$height;
+}
+
+//要素の横幅指定
+@mixin boxWidth($width){
+  width: $width;
+}
+
+//要素の縦横指定
+@mixin boxSize($height, $width){
+  height: $height;
+  width: $width;
+}
+
+//display: flex指定
+@mixin display{
+  display: flex;
+}
+
+
+
+// SNSのボックス
+.social-media-container{
+  @include boxSize(100%, 100%);
+  background-color: #f8f8f8;
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+
+  .social-medias{
+    @include boxSize(138px, 700px);
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2em;
+  }
+
+  .facebook__btn{
+    @include boxSize(44px, 44px);
+    color: #fff;
+    background-color: #385185;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .twitter__btn{
+    @include boxSize(44px, 44px);
+    color: #fff;
+    background-color: #5d9dc9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .line__btn{
+    @include boxSize(44px, 44px);
+    color: #fff;
+    background-color: #00c137;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .pinterest__btn{
+    @include boxSize(44px, 44px);
+    color: #fff;
+    background-color: #aa262a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+}

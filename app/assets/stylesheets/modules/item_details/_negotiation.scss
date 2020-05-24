@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+//要素の高さ指定
+@mixin boxHeight($height){
+  height:$height;
+}
+
+//要素の横幅指定
+@mixin boxWidth($width){
+  width: $width;
+}
+
+//要素の縦横指定
+@mixin boxSize($height, $width){
+  height: $height;
+  width: $width;
+}
+
+//display: flex指定
+@mixin display{
+  display: flex;
+}
+
+
+
+// 交渉
+.messages-container{
+  @include boxSize(100%, 100%);
+  background-color: #f8f8f8;
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+
+  .message-list{
+    @include boxSize(100%, 700px);
+    background-color: #fff;
+    padding: 24px;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    display: flex;
+    justify-content: center;
+    color: #333333;
+    font-size: 14px;
+
+    ul{
+      @include boxSize(100%, 652px);
+
+      li:first-child {
+        margin: 1.5em 0 0;
+      }
+
+      li{
+        display: flex;
+        margin-top: 60px;
+
+        .image{
+          @include boxSize(40px, 40px);
+          border-radius: 20px;
+        }
+
+        .exhibitor{
+          background: #eef0f4;
+          font-size: 12px;
+          text-align: center;
+          margin-top: 8px;
+        }
+
+        .user-name{
+          margin: 0 0 0 11px;
+        }
+
+        .message-content{
+          background: #eef0f4;
+          width: 600px;
+          padding: 16px;
+          border-radius: 15px;
+          margin: 5px 0 0 8px;
+        
+          .icon-box{
+            display: flex;
+            margin-top: 8px;
+            color: #aaaaaa;
+
+            .icon{
+              margin: 2px 3px 0 0;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

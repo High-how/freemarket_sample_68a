@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+//要素の高さ指定
+@mixin boxHeight($height){
+  height:$height;
+}
+
+//要素の横幅指定
+@mixin boxWidth($width){
+  width: $width;
+}
+
+//要素の縦横指定
+@mixin boxSize($height, $width){
+  height: $height;
+  width: $width;
+}
+
+//display: flex指定
+@mixin display{
+  display: flex;
+}
+
+
+
+// 同カテゴリーの商品
+.same-category-items-container{
+  @include boxSize(100%, 100%);
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
+  .same-category-items{
+    @include boxSize(100%, 700px);
+
+    &__same-category{
+      height: 30px;
+      font-size: 22px;
+      margin: 24px 0 8px;
+
+      .same-category-item__category-name{
+        color: #0099e8;
+        font-weight: bold;
+      }
+    }
+
+    &__content{
+      @include boxSize(700px, 720px);
+      background-color: #f8f8f8;
+      display: flex;
+      flex-wrap: wrap;
+
+      &__box{
+        @include boxSize(330px, 220px);
+        margin: 0 20px 20px 0;
+      
+        &__image{
+          @include boxSize(220px, 220px);
+
+          .image{
+            @include boxSize(220px, 220px);
+          }
+        }
+
+        &__description{
+          @include boxSize(110px, 220px);
+          background-color: #fff;
+          padding: 16px;
+          font-size: 16px;
+          color: #333333;
+
+          &__item-name{
+            @include boxSize(48px, 188px);
+            overflow: hidden;
+            position: relative;
+
+            .same-category-items-transparent{
+              @include boxSize(24px, 94px);
+              position: absolute;
+              background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
+              background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+              bottom: 0px;
+              right: 0px;
+            }
+          }
+
+          &__item-price{
+            @include boxSize(16px, 188px);
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+
+            &__like{
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+//要素の高さ指定
+@mixin boxHeight($height){
+  height:$height;
+}
+
+//要素の横幅指定
+@mixin boxWidth($width){
+  width: $width;
+}
+
+//要素の縦横指定
+@mixin boxSize($height, $width){
+  height: $height;
+  width: $width;
+}
+
+//display: flex指定
+@mixin display{
+  display: flex;
+}
+
+
+
+
+// 検索ルート的なやつ
+.crumbs-container{
+  @include boxSize(48px, 100%);
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  color: #333333;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  border-top: 1px solid;
+  border-color: #f3f0f0;
+  position: relative;
+
+  .crumbs{
+    width: 700px;
+    display: flex;
+    align-items: center;
+
+    &__link{
+      @include boxSize(18px, 80.95px);
+      display: flex;
+      align-items: center;
+
+      &__furima{
+        width: 56px;
+        
+        .furima-top-page{
+          color: #333333;
+        }
+      }
+
+      &__icon{
+        margin: 0px 8px;
+        color: #888;
+        font-size: 12px;
+        font-family: 'icon-font';
+        font-style: normal;
+        font-weight: 400;
+      }
+    }
+
+    &__item-name{
+      @include boxSize(18px, 619.05px);
+      font-weight: 600;
+      overflow: hidden;
+
+      .crumbs-transparent{
+        @include boxSize(18px, 94px);
+        height: 18px;
+        width: 94px;
+        position: absolute;
+        bottom: 14px;
+        right: 117px;
+        background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #f8f8f8));
+        background: linear-gradient(to right, rgba(255,255,255,0), #f8f8f8 72%);
+      }
+    }
+  }
+}

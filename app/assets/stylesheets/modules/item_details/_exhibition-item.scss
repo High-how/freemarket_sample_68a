@@ -1,0 +1,441 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+//要素の高さ指定
+@mixin boxHeight($height){
+  height:$height;
+}
+
+//要素の横幅指定
+@mixin boxWidth($width){
+  width: $width;
+}
+
+//要素の縦横指定
+@mixin boxSize($height, $width){
+  height: $height;
+  width: $width;
+}
+
+//display: flex指定
+@mixin display{
+  display: flex;
+}
+
+
+
+
+// メイン アイテム買うとこ
+.exhibition-item-container{
+  @include boxSize(100%, 100%);
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+
+  .exhibition-item{
+    @include boxSize(100%, 700px);
+    background-color: #fff;
+    padding: 24px 40px 40px;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
+    &__name{
+      @include boxSize(33px, 620px);
+      background-color: #fff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 1.4;
+      font-weight: bold;
+      overflow: hidden;
+      position: relative;
+
+      .exhibition-item-transparent{
+        @include boxSize(33px, 94px);
+        position: absolute;
+        background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
+        background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+        bottom: 0px;
+        right: 0px;
+      }
+    }
+
+    &__wording{
+      @include boxSize(100%, 620px);
+      background-color: #fff;
+      margin: 0 auto;
+      color:#888888;
+      font-size: 14px;
+      margin: 8px 0 0;
+
+      a{
+        color:#888888;
+      }
+    }
+
+    &__main-content{
+      @include boxSize(420px, 620px);
+      margin: 16px 0 0;
+      display: flex;
+
+      &__item-photos{
+        @include boxSize(420px, 300px);
+
+        .image{
+          @include boxSize(300px, 300px);
+        }
+
+        &__other-photos{
+          width: 300px;
+          background: #fafafa;
+          display: flex;
+          flex-wrap: wrap;
+
+          .image{
+            @include boxSize(60px, 60px);
+          }
+        }
+      }
+
+      &__tbody{
+        @include boxSize(420px, 300px);
+        margin-left: 20px;
+        font-size: 14px;
+        color: #333333;
+
+        &__exhibitor-box{
+          height: 65px;
+          display: flex;
+
+          &__exhibitor{
+            @include boxSize(65px, 117px);
+            border: 1px solid #f5f5f5;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+          &__exhibitor-value{
+            @include boxSize(65px, 183px);
+            border: 1px solid #f5f5f5;
+
+            &__exhibitor-name{
+              padding: 8px 0 0 8px;
+
+              .exhibitor-name{
+                color: #0099e8;
+              }
+            }
+
+            &__exhibitor-evaluation-box{
+              display: flex;
+              padding: 8px 0 0 8px;
+
+              &__good{
+                display: flex;
+
+                &__icon{
+                  font-size: 16px;
+                  color: #ef5185;
+                  margin-right: 3px;
+                }
+              }
+
+              &__normal{
+                display: flex;
+
+                &__icon{
+                  font-size: 16px;
+                  color: #fba933;
+                  margin: 0 3px 0 15px;
+                }
+              }
+
+              &__bad{
+                display: flex;
+
+                &__icon{
+                  font-size: 16px; 
+                  color: #6ab5d8;
+                  margin: 0 3px 0 15px;
+
+                }
+              }
+            }
+          }
+        }
+
+        &__category-box{
+          height: 68px;
+          display: flex;
+
+          &__category{
+            @include boxSize(68px, 117px);
+            border: 1px solid #f5f5f5;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+          &__category-value{
+            @include boxSize(68px, 183px);
+            border: 1px solid #f5f5f5;
+            padding-left: 8px;
+
+            .category-1{
+              color: #0099e8;
+            }
+
+            .category-2{
+              color: #0099e8;
+            }
+
+            .category-3{
+              color: #0099e8;
+            }
+          }
+        }
+
+        &__brand-box{
+          height: 40px;
+          display: flex;
+
+          &__bland{
+            @include boxSize(40px, 117px);
+            border: 1px solid #f5f5f5;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+          &__bland-value{
+            @include boxSize(40px, 183px);
+            border: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            color: #0099e8;
+          }
+        }
+
+        &__item-size-box{
+          height: 41px;
+          display: flex;
+
+          &__item-size{
+            @include boxSize(41px, 117px);
+            border: 1px solid #f5f5f5;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+          &__item-size-value{
+            @include boxSize(41px, 183px);
+            border: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+        }
+
+        &__item-status-box{
+          height: 41px;
+          display: flex;
+
+          &__item-status{
+            @include boxSize(41px, 117px);
+            border: 1px solid #f5f5f5;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+          &__item-status-value{
+            @include boxSize(41px, 183px);
+            border: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+        }
+
+        &__delivery-fee-burden-box{
+          height: 41px;
+          display: flex;
+
+          &__delivery-fee-burden{
+            @include boxSize(41px, 117px);
+            border: 1px solid #f5f5f5;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+          &__delivery-fee-burden-value{
+            @include boxSize(41px, 183px);
+            border: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+        }
+
+        &__delivery-method-box{
+          height: 41px;
+          display: flex;
+
+          &__delivery-method{
+            @include boxSize(41px, 117px);
+            border: 1px solid #f5f5f5;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+          &__delivery-method-value{
+            @include boxSize(41px, 183px);
+            border: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+        }
+
+        &__shipping-area-box{
+          height: 41px;
+          display: flex;
+
+          &__shipping-area{
+            @include boxSize(41px, 117px);
+            border: 1px solid #f5f5f5;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+          &__shipping-area-value{
+            @include boxSize(41px, 183px);
+            border: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+        }
+
+        &__date-of-shipment-box{
+          height: 41px;
+          display: flex;
+
+          &__date-of-shipment{
+            @include boxSize(41px, 117px);
+            border: 1px solid #f5f5f5;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+
+          &__date-of-shipment-value{
+            @include boxSize(41px, 183px);
+            border: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+          }
+        }
+      }
+    }
+
+    &__price-box{
+      @include boxSize(50px, 620px);
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      color: #333333;
+      margin: 24px 0 0;
+
+      &__price{
+        font-size: 50px;
+        margin: 0 16px 0 0;
+      }
+      
+      &__tax{
+        height: 13px;
+        font-size: 10px;
+        position: relative;
+        top: 37px
+      }
+
+      &__postage-included{
+        height: 16px;
+        font-size: 16px;
+        position: relative;
+        top: 30px
+      }
+    }
+
+    &__buy-btn{
+      @include boxSize(50px, 620px);
+      font-size: 24px;
+      background-color: #EA352D;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .item-buy-btn{
+        color: #ffffff;
+      }
+    }
+
+    &__description{
+      height: 100%;
+      width: 620px;
+      background-color: #fff;
+      font-size: 18px;
+      color: #333333;
+
+      &__left-button{
+        height: 33px;
+        width: 118.27px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        background-color: #f5f5f5;
+        border-radius: 16.5px;
+        margin-top: 20px;
+
+        &__icon{
+          color: #9c9c9c;
+        
+          &__like{
+            padding-left:8px;
+          }
+
+          &__count{
+            margin: 0px 0px 1px 8px;
+          }
+        }
+      }
+    }
+  }
+}
