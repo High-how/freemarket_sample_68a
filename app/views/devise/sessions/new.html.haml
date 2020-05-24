@@ -1,0 +1,45 @@
+.wrapper
+  = render partial: 'signin/indexHeader'
+
+  .login-main
+    .login-main__center
+
+      .login-main__center__account
+        %p アカウントをお持ちでない方はこちら
+        .login-main__center__account__no
+          = link_to new_user_registration_path do
+            新規会員登録
+
+      .login-main__center__inner
+        .login-main__center__inner__default
+      
+          .login-main__center__inner__default__facebook
+            = link_to "#" do
+              .login-main__center__inner__default__facebook__icon
+                = icon('fab', 'facebook-square')
+              .login-main__center__inner__default__facebook__text
+                Facebookでログイン
+
+          .login-main__center__inner__default__google
+            = link_to "#" do
+              .login-main__center__inner__default__google__icon
+                = icon('fab', 'google')
+              .login-main__center__inner__default__google__text
+                Googleでログイン
+
+      .login-main__center__login
+        = form_with(model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true) do |f|
+          .login-main__center__login__box
+            = f.email_field :email, class:"login-main__center__login__box__form", autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
+          
+          .login-main__center__login__boxs
+            = f.password_field :password, class: "login-main__center__login__boxs__form", autocomplete: "current-password", placeholder: "パスワード"
+
+          .login-main__center__login__boxs
+            = f.submit "ログイン", class: "login-main__center__login__boxs__submit"
+
+          .login-main__center__login__less
+            = link_to "#" do
+              パスワードをお忘れの方
+
+  = render partial: 'signin/footer'

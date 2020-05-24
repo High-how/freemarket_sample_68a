@@ -1,0 +1,351 @@
+@mixin label{
+  font-weight: 600;
+  display: inline-block;
+  font-size: 14px;
+}
+
+@mixin form-box{
+  background: #3CCACE;
+  margin: 0 0 0 8px;
+  padding: 3px 5px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+}
+
+@mixin form-etc{
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+@mixin error-text{
+  color: #3CCACE;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+@mixin form{
+  margin-top: 32px;
+  width: 100%;
+}
+
+.new{
+  width: 100%;
+  display: block;
+  &__main{
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    &__top{
+      font-size: 22px;
+      padding: 32px;
+      line-height: 1.5;
+      text-align: center;
+      h2{
+        font-weight: bold;
+      }
+    }
+    &__middle{
+      padding: 40px 40px 64px;
+      border-top: 1px solid #f5f5f5;
+      &__center{
+        max-width: 343px;
+        margin: 0 auto;
+        &__form-group{
+          margin: 0;
+          width: 100%;
+          label{
+            @include label;
+          }
+          .form-box{
+            @include form-box;
+          }
+          .form-nick{
+            @include form-etc;
+          }
+          input.invalid { 
+            border: #ea352d 1px solid;
+          }
+          input.valid {
+            border: #3CCACE 1px solid; 
+          }
+        }
+        &__form-groups{
+          @include form;
+          label{
+            @include label;
+          }
+          .form-box{
+            @include form-box;
+          }
+          .form-mail{
+            @include form-etc;
+          }
+          input.invalid { 
+            border: #ea352d 1px solid;
+          }
+          input.valid {
+            border: #3CCACE 1px solid; 
+          }
+        }
+        &__form-password{
+          @include form;
+          label{
+            @include label;
+          }
+          .form-box{
+            @include form-box;
+          }
+          .form-pass{
+            @include form-etc;
+          }
+          p{
+            margin: 8px 0 0;
+            line-height: 1.5;
+          }
+          .form-info{
+            color: #888;
+            font-size: 14px;
+          }
+          input.invalid { 
+            border: #ea352d 1px solid;
+          }
+          input.valid {
+            border: #3CCACE 1px solid; 
+          }
+          .check-box{
+            margin: 16px 0 0;
+            position: relative;
+            font-size: 0;
+            #check{
+              position: absolute;
+              top: 3px;
+              left: 0;
+              z-index: 1;
+              width: 20px;
+              height: 20px;
+              border-radius: 2px;
+              background: #fff;
+              border: 1px solid #ccc;
+              font-size: 10px;
+              line-height: 17px;
+              text-align: center;
+              color: #fff;
+              vertical-align: middle;
+              padding-top: 2px;
+              transform: scale(1.5);
+            }
+            label{
+              position: relative;
+              z-index: 2;
+              padding: 0 0 0 28px;
+              font-size: 14px;
+              font-weight: 400;
+              vertical-align: middle;
+              cursor: pointer;
+              display: inline-block;
+            }
+          }
+          .check-mark{
+            display: none;
+            line-height: 1.5;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: monospace;
+            margin: 14px 0;
+            word-break: break-all;
+            overflow-wrap: break-word;
+            .check-marker{
+              display: none;
+              background-color: #f5f5f5;
+              padding: 4px 8px;
+            }
+          }
+          .name{
+            font-size: 16px;
+            font-weight: bold;
+          }
+          .text{
+            margin: 8px 0 0;
+            padding: 0;
+            font-size: 14px;
+          }
+        }
+        &__form-name{
+          @include form;
+          &__div{
+            width: 100%;
+            label{
+              @include label;
+            }
+            .form-box{
+              @include form-box;
+            }
+          }
+          .family_name{
+            width: calc(50% - 6px);
+            margin: 8px 3px 0 0;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+          input.invalid { 
+            border: #ea352d 1px solid;
+          }
+          input.valid {
+            border: #3CCACE 1px solid; 
+          }
+        }
+        &__form-birth{
+          @include form;
+          label{
+            @include label;
+          }
+          .form-box{
+            @include form-box;
+          }
+          .select{
+            width: 100%;
+            &__wrap{
+              width: 76px;
+              display: inline-block;
+              margin: 8px 0 0;
+              position: relative;
+              background: #fff;
+              &__icon{
+                position: absolute;
+                right: 7px;
+                top: 14%;
+                z-index: 2;
+                color: #888;
+                font-size: 25px;
+              }
+              select::-ms-expand {
+                display: none;
+              }
+              select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding: 0 10px;
+                border-color: #3CCACE;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                -webkit-appearance: none;
+              }
+              &__default{
+                padding: 0 10px;
+                border-color: #3CCACE;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                -webkit-appearance: none;
+              }
+              select.invalid { 
+                border: #ea352d 1px solid;
+              }
+              select.valid {
+                border: #3CCACE 1px solid; 
+              }
+            }
+            &__span{
+              margin: 0 2px;
+            }
+          }
+        }
+        &__form-info{
+          margin: 8px 0 0;
+          line-height: 1.5;
+          color: #888;
+          font-size: 14px;
+        }
+      }
+      &__down{
+        max-width: 343px;
+        margin: 0 auto;
+        &__btn-box{
+          margin-top: 32px;
+          width: 100%;
+          .text{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 14px;
+          }
+        }
+        &__btn{
+          @include form;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+        }
+        .text-right{
+          text-align: right;
+          margin-top: 32px
+        }
+        a{
+          color: #0099e8;
+          text-decoration: none;
+          font-size: 14px;
+        }
+        .gray-box{
+          margin-top: 32px;
+          background-color: #f5f5f5;
+          padding: 8px 16px;
+          &__english{
+            margin: 0;
+            color: #888888;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#user_nickname-error, #user_email-error, #user_password-error, #user_password_confirmation-error, #user_family_name-error, #user_first_name-error, #user_family_name_reading-error, #user_first_name_reading-error, #user_birth_year-error, #user_birth_month-error, #user_birth_day-error {
+  color: #ea352d;
+  line-height: 1.5;
+  font-size: 14px;
+  margin-top: 8px;
+  list-style: none;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+  outline: none;
+  border-color: #0098E8;
+}
