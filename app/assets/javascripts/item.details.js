@@ -1,12 +1,7 @@
 $(function(){
-  $("ul.menu li").mouseenter(function(){
-     $(this).siblings().find("ul").hide();
-     $(this).children().slideDown("slow");
-  });
-  $('html').click(function() {
-     $('ul.menu ul').slideUp(150);
-  });
+$('.exhibition-item__main-content__item-photos__other-photos img').click(function(){
+var $thisImg = $(this).attr('src');
+var $thisAlt = $(this).attr('alt');
+$('.exhibition-item__main-content__item-photos__choice-photo img').attr({src:$thisImg,alt:$thisAlt});
 });
-
-// $・・・juaryの呼び出し
-// function・・・関数（繰り返し処理の式みたいな）
+});

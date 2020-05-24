@@ -158,12 +158,8 @@ ul {
       &__item-photos{
         @include boxSize(420px, 300px);
 
-        &__choice-photo{
+        .image{
           @include boxSize(300px, 300px);
-
-          .image{
-            @include boxSize(300px, 300px);
-          }
         }
 
         &__other-photos{
@@ -172,12 +168,8 @@ ul {
           display: flex;
           flex-wrap: wrap;
 
-          &__photo{
+          .image{
             @include boxSize(60px, 60px);
-
-            .image{
-              @include boxSize(60px, 60px);
-            }
           }
         }
       }
