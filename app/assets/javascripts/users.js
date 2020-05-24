@@ -10,10 +10,10 @@ $(document).on('turbolinks:load', function() {
   tabs.click(tabSwitch)
 });
 
-$(function(){
+$(document).on('turbolinks:load', function(){
   $(".mypage__main__left-content__nav__menu").hover(function(){
     $(this).css('background', '#eee');
-    $(this).css('font-size', '+=0.2em');
+    $(this).css('font-size', '+=0.0em');
     }, function() {
     $(this).css('background', '');
     $(this).css('font-size', '');
@@ -23,7 +23,7 @@ $(function(){
 $(function(){
   $(".mypage__main__left-content__price__menu").hover(function(){
     $(this).css('background', '#eee');
-    $(this).css('font-size', '+=0.2em');
+    $(this).css('font-size', '+=0.0em');
     }, function() {
     $(this).css('background', '');
     $(this).css('font-size', '');
@@ -33,7 +33,7 @@ $(function(){
 $(function(){
   $(".mypage__main__left-content__list__menu").hover(function(){
     $(this).css('background', '#eee');
-    $(this).css('font-size', '+=0.2em');
+    $(this).css('font-size', '+=0.0em');
     }, function() {
     $(this).css('background', '');
     $(this).css('font-size', '');

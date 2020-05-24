@@ -6,7 +6,7 @@
           .mypage__main__right-content__user-icon__box__figure__img
             = image_tag "member_photo_noimage_thumb.png", class:"image", alt:"logo"
           .mypage__main__right-content__user-icon__box__figure__name
-            佐藤健
+            = current_user.nickname
         .mypage__main__right-content__user-icon__box__number
           .mypage__main__right-content__user-icon__box__number__list
             .mypage__main__right-content__user-icon__box__number__list__evaluation
@@ -27,45 +27,11 @@
           .mypage__main__right-content__todo__lists__list__figure__logo
             = image_tag "member_photo_noimage_thumb.png", class:"image", alt:"logo"
           .mypage__main__right-content__todo__lists__list__figure__title
-            ポケモンゴー
+            現在やることはありません
             .mypage__main__right-content__todo__lists__list__figure__title__box
               .mypage__main__right-content__todo__lists__list__figure__title__box__icon
-                a
+              
               .mypage__main__right-content__todo__lists__list__figure__title__box__time
-                2時間前
-      .mypage__main__right-content__todo__lists__list
-        .mypage__main__right-content__todo__lists__list__figure
-          .mypage__main__right-content__todo__lists__list__figure__logo
-            = image_tag "member_photo_noimage_thumb.png", class:"image", alt:"logo"
-          .mypage__main__right-content__todo__lists__list__figure__title
-            ポケモンゴー
-            .mypage__main__right-content__todo__lists__list__figure__title__box
-              .mypage__main__right-content__todo__lists__list__figure__title__box__icon
-                a
-              .mypage__main__right-content__todo__lists__list__figure__title__box__time
-                2時間前
-      .mypage__main__right-content__todo__lists__list
-        .mypage__main__right-content__todo__lists__list__figure
-          .mypage__main__right-content__todo__lists__list__figure__logo
-            = image_tag "member_photo_noimage_thumb.png", class:"image", alt:"logo"
-          .mypage__main__right-content__todo__lists__list__figure__title
-            ポケモンゴー
-            .mypage__main__right-content__todo__lists__list__figure__title__box
-              .mypage__main__right-content__todo__lists__list__figure__title__box__icon
-                a
-              .mypage__main__right-content__todo__lists__list__figure__title__box__time
-                2時間前
-      .mypage__main__right-content__todo__lists__list
-        .mypage__main__right-content__todo__lists__list__figure
-          .mypage__main__right-content__todo__lists__list__figure__logo
-            = image_tag "member_photo_noimage_thumb.png", class:"image", alt:"logo"
-          .mypage__main__right-content__todo__lists__list__figure__title
-            ポケモンゴー
-            .mypage__main__right-content__todo__lists__list__figure__title__box
-              .mypage__main__right-content__todo__lists__list__figure__title__box__icon
-                a
-              .mypage__main__right-content__todo__lists__list__figure__title__box__time
-                2時間前
   .mypage__main__right-content__container
     .mypage__main__right-content__container__title
       .mypage__main__right-content__container__title__box
