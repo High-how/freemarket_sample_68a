@@ -1,12 +1,12 @@
 # config valid for current version and patch releases of Capistrano
-# lock "~> 3.13.0"
+# lock "~> 3.14.0"
 
 # set :application, "freemarket_sample_68a"
 # set :repo_url, "git@github.com:High-how/freemarket_sample_68a.git"
 
 # config valid only for current version of Capistrano
 # capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
-lock '3.13.0'
+lock '3.14.0'
 
 # Capistranoのログの表示に利用する
 set :application, 'freemarket_sample_68a'
