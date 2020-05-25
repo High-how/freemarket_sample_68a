@@ -5,7 +5,7 @@
         = image_tag "logo.png", class:"image", alt:"logo"
       .header__inner__main__search
         .header__inner__main__search__form
-          = form_with url: "a", local: true, method: :get, class: "header__inner__main__search__form__input" do |form|
+          = form_with url: "a", local: true, method: :get, class: "header__inner__main__search__form__input" do |form|#f5f5f5
             .header__inner__main__search__form__input__box
               = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
             .header__inner__main__search__form__btn
