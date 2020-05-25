@@ -145,25 +145,24 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
-|name|string|null: false|
-|price|integer|null: false, foreign_key: true|
-|postage_payer|string|null: false|
-|postage_type|string|null: false|
-|trading_status|enum|null: false|
-|deal_closed_date|timestamp|null: false|
-|shipping_date|integer|null: false|
-|shipping_area|string|null: false|
-|size|integer|null: false|
-|introduction|text|null: false|
+<!-- |user_id|references|null: false, foreign_key: true| -->
+<!-- |name|string|null: false| -->
+<!-- |price|integer|null: false, foreign_key: true| -->
+<!-- |postage_payer|integer|null: false| -->
+<!-- |brand|string| -->
+<!-- |postage_type|string|null: false| -->
+<!-- |trading_status|integer|null: false| -->
+<!-- |shipping_date|integer|null: false| -->
+<!-- |shipping_area|string|null: false| -->
+<!-- |size|integer|null: false| -->
+<!-- |introduction|text|null: false| -->
 ### Association
 - belongs_to :user
 - belongs_to :category dependent: :destroy
 - has_many :item_images dependent: :destroy
-- belongs_to :brand dependent: :destroy
 - has_many :likes
 - has_many :comments
 - has_many :evaluations
@@ -178,15 +177,6 @@ Things you may want to cover:
 |ancestry|string|null: false|
 ### Association
 - has_many :items
-
-
-## brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :items
-
 
 ## item_imagesテーブル
 |Column|Type|Options|

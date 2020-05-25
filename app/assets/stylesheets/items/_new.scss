@@ -101,10 +101,10 @@
       margin: 8px 0 0;
       position: relative;
       background: #fff;
-      &__icon{
+      .fa-angle-down{
         position: absolute;
         right: 12px;
-        top: 12%;
+        top: 25%;
         z-index: 2;
         color: #888;
         font-size: 25px;
