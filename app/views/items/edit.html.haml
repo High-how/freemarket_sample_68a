@@ -78,7 +78,7 @@
               .select-wrap
                 .select-wrap__icon
                   = icon('fas', 'angle-down')
-                = f.select :trading_status, TradingStatus.pluck(:status).unshift(""),{},{class: 'default-select select-wrap__sell-select-box'}
+                = f.select :trading_status, TradingStatus.pluck(:status).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
                 -# %select.select-wrap__select-box{name: "status", id: "status"}
                 -#   %option{value: "0"}  選択してください
               -# = f.collection_select :trading_status_id, TradingStatus.group(:status).order(id: :asc), :id, :status, {prompt: "選択してください"},id:"newSelect"
@@ -96,7 +96,7 @@
               .select-wrap
                 .select-wrap__icon
                   = icon('fas', 'angle-down')
-                = f.select :postage_payer, PostagePayer.pluck(:payer).unshift(""),{},{class: 'default-select select-wrap__sell-select-box'}
+                = f.select :postage_payer, PostagePayer.pluck(:payer).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
                 -# = select :postage_payer, :name, Item.postage_payers.keys.to_a, include_blank: true
                 -# %select.select-wrap__select-box{name: "payer", id: "payer"}
                 -#   %option{value: "0"}  選択してください
@@ -108,7 +108,7 @@
               .select-wrap
                 .select-wrap__icon
                   = icon('fas', 'angle-down')
-                = f.select :postage_type, PostageType.pluck(:type).unshift(""),{},{class: 'default-select select-wrap__sell-select-box'}
+                = f.select :postage_type, PostageType.pluck(:type).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
               -#   %select.select-wrap__select-box{name: "", id: ""}
               -#     %option{value: "0"}  選択してください
               -# -# = f.collection_select :postage_type_id, PostageType.all, :name, :name, {prompt: "選択してください"}
@@ -119,7 +119,7 @@
             .select-wrap
               .select-wrap__icon
                 = icon('fas', 'angle-down')
-              = f.select :shipping_area, ShippingArea.pluck(:area).unshift(""),{},{class: 'default-select select-wrap__sell-select-box'}
+              = f.select :shipping_area, ShippingArea.pluck(:area).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
               -# %select.select-wrap__select-box{name: "area", id: "area"}
               -#   %option{value: "0"}  選択してください
             -# = f.collection_select :shipping_area_id, ShippingArea.group(:area).order(id: :asc), :id, :area, {prompt: "選択してください"},id:"newSelect"
@@ -130,7 +130,7 @@
             .select-wrap
               .select-wrap__icon
                 = icon('fas', 'angle-down')
-              = f.select :shipping_date, ShippingDate.pluck(:date).unshift(""),{},{class: 'default-select select-wrap__sell-select-box'}
+              = f.select :shipping_date, ShippingDate.pluck(:date).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
               -# = select :shipping_date, :name, Item.shipping_dates.keys.to_a
               -# %select.select-wrap__select-box{name: "date", id: "date"}
               -#   %option{value: "0"}  選択してください

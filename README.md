@@ -151,13 +151,11 @@ Things you may want to cover:
 |seller_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |price|integer|null: false, foreign_key: true|
-|item_condition|text|null: false|
 |postage_payer|string|null: false|
 |postage_type|string|null: false|
 |trading_status|enum|null: false|
 |deal_closed_date|timestamp|null: false|
 |shipping_date|integer|null: false|
-|shipping_method|string|null: false|
 |shipping_area|string|null: false|
 |size|integer|null: false|
 |introduction|text|null: false|
@@ -194,6 +192,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
-|url|string|null: false|
+|src|string|null: false|
 ### Association
 - belongs_to :item
