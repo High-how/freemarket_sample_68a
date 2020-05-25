@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+<<<<<<< Updated upstream
   before_action :authenticate_user!, except: [:show]
   def index
   end
@@ -36,4 +37,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :size, :introduction, :trading_status, :postage_payer, :postage_type,:shipping_area, :shipping_date, :price, :brand, :category_id).merge(user_id: current_user.id)
   end
   
+=======
+  def new
+  end
+>>>>>>> Stashed changes
 end

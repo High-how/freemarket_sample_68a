@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< Updated upstream
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -13,5 +14,9 @@ Rails.application.routes.draw do
     collection do
       get :category_search
     end
+=======
+  root "samples#index"
+  resources  :items do
+>>>>>>> Stashed changes
   end
 end

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .wrapper
   = render 'signin/indexHeader'
   .sell-container
@@ -152,3 +153,148 @@
               = link_to "加盟店規約"
               に同意したことになります。
   = render 'signin/footer'
+=======
+= render partial: 'share/simple-header'
+
+-# メイン部分
+= form_with(model: @item, local: true, multipart: true, class: "sell-form dropzone", id: "item-dropzone") do |f|
+  .buy__container
+    .buy__container__main
+      .buy__container__main__wrapper
+        .buy__container__main__wrapper--head
+          %h2 商品の情報を入力
+        
+        -# 画像投稿フォーム
+        .buy__container__main__wrapper__sell-form
+          .buy__container__main__wrapper__sell-form--up-load-box
+            %h3<
+              出品画像
+              %span.required> 必須
+            %p
+              最大5枚までアップロードできます
+            = f.fields_for :images do |image|
+              .dropzone-container
+                #preview
+                .dropzone-area
+                  = image.label :image, class: "dropzone-box", for: "upload-image" do
+                    .input_area
+                      = image.file_field :image, type: "file", multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0, required: "required"
+                    %i.fa.fa-camera
+       
+        -# 商品名・商品説明入力フォーム
+        .buy__container__main__wrapper__name-form
+          .buy__container__main__wrapper__name-form__name-box
+            %label<
+              商品名
+              %span.required> 必須
+            .buy__container__main__wrapper__name-form__name-box__input
+              = f.text_field :name, placeholder: "商品名（必須４０文字まで）", maxlength: "40", required: "required"
+          .buy__container__main__wrapper__name-form__text-box
+            %label<
+              商品の説明
+              %span.required> 必須
+            .buy__container__main__wrapper__name-form__text-box__textarea
+              = f.text_area :text, maxlength:'1000', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", required: "required"
+        
+        -# 商品の詳細セレクト欄
+        .buy__container__main__wrapper__detail
+          %h3.buy__container__main__wrapper__detail__title 商品の詳細
+          .buy__container__main__wrapper__detail__select
+            .buy__container__main__wrapper__detail__select__category
+              #category-insert
+                %label<
+                  カテゴリー
+                  %span.required> 必須
+                .buy__container__main__wrapper__detail__select__category__select
+                  -# = f.collection_select :category_id, @category_parent_array, :id, :name, { prompt: "---" }, id: 'parent_category', required: "required"
+
+            .buy__container__main__wrapper__detail__select__state
+              %label<
+                ブランド
+                %span.not-required> 任意
+              .buy__container__main__wrapper__detail__select__state__select
+                -# = f.collection_select :brand_id, @brand, :id, :name, { prompt: "---" }
+            .buy__container__main__wrapper__detail__select__state
+              %label<
+                商品の状態
+                %span.required> 必須
+              .buy__container__main__wrapper__detail__select__state__select
+                -# = f.collection_select :condition_id, @condition, :id, :name, { prompt: "---" }, required: "required"
+                
+        
+        -# 配送についてセレクト欄
+        .buy__container__main__wrapper__delivery
+          %h3.buy__container__main__wrapper__delivery__title 配送について
+          = link_to '?', "#", class: "question"
+          .buy__container__main__wrapper__delivery__select
+            .buy__container__main__wrapper__delivery__select__burden
+              %label<
+                配送料の負担
+                %span.required> 必須
+              .buy__container__main__wrapper__delivery__select__burden__select
+                -# = f.collection_select :postage_id, @postage, :id, :name , { prompt: "---" }, required: "required"
+            .buy__container__main__wrapper__delivery__select__shipping-origin
+              %label<
+                発送元の地域
+                %span.required> 必須
+              .buy__container__main__wrapper__delivery__select__shipping-origin__select
+                -# = f.collection_select :region_id, @region, :id, :name, { prompt: "---" }, required: "required"
+            .buy__container__main__wrapper__delivery__select__schedule
+              %label<
+                配送までの日数
+                %span.required> 必須
+              .buy__container__main__wrapper__delivery__select__schedule__select
+                -# = f.collection_select :delivery_day_id, @delivery_day, :id, :day, { prompt: "---" }, required: "required"
+            .buy__container__main__wrapper__delivery__select__shipping-origin
+              %label<
+                配送方法
+                %span.required> 必須
+              .buy__container__main__wrapper__delivery__select__burden__select
+                -# = f.collection_select :delivery_way_id, @delivery_way, :id, :name , { prompt: "---" }, required: "required"
+        
+        -# 価格のセレクト欄
+        .buy__container__main__wrapper__price
+          %h3.buy__container__main__wrapper__price__title 販売価格(300〜9,999,999)
+          = link_to '?', "#", class: "question"
+          .buy__container__main__wrapper__price__select
+            .buy__container__main__wrapper__price__select__price-box
+              .buy__container__main__wrapper__price__select__price-box__title-block
+                %label<
+                価格
+                %span.required> 必須 
+              .buy__container__main__wrapper__price__select__price-box__input-block
+                %label<
+                ￥
+                = f.number_field :price, placeholder: "例）300", id:"price", min:"300", max:"9999999", required: "required"
+            .buy__container__main__wrapper__price__select__fee
+              .buy__container__main__wrapper__price__select__fee__left
+                %label 販売手数料(10%)
+              .buy__container__main__wrapper__price__select__fee__right
+                %p -
+            .buy__container__main__wrapper__price__select__profit
+              .buy__container__main__wrapper__price__select__profit__left
+                %label 販売利益
+              .buy__container__main__wrapper__price__select__profit__right
+                %p -
+
+        -# ボトム
+        .buy__container__main__wrapper__bottom
+          .buy__container__main__wrapper__bottom__text
+            %p
+              =link_to '禁止されている出品', "#", class:"text-link"
+              、
+              =link_to '行為', "#", class:"text-link"
+              を必ずご確認ください。
+            %p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              =link_to '偽ブランドの販売', "#", class:"text-link"
+              は犯罪であり処罰される可能性があります。
+            %p
+              また、出品を持ちまして
+              =link_to '加盟店規約', "#", class:"text-link"
+              に同意したことになります。
+          = f.submit "出品する", class: "button", id:"item_create"
+          =link_to 'もどる', "#", class:"return-link"
+
+= render partial: 'share/simple-footer'
+>>>>>>> Stashed changes
