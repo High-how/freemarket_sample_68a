@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function(){
   });
 }); 
 
-$(function(){
+$(document).on('turbolinks:load', function(){
   $(".mypage__main__left-content__price__menu").hover(function(){
     $(this).css('background', '#eee');
     $(this).css('font-size', '+=0.0em');
@@ -30,7 +30,7 @@ $(function(){
   });
 });
 
-$(function(){
+$(document).on('turbolinks:load', function(){
   $(".mypage__main__left-content__list__menu").hover(function(){
     $(this).css('background', '#eee');
     $(this).css('font-size', '+=0.0em');

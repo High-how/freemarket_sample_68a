@@ -9,6 +9,7 @@ $(function(){
     // submitが完了する前に、formを止めます。
     form.find("input[type=submit]").prop("disabled", true);
     // submitを止められたので、PAY.JPの登録に必要な処理をします。
+    $('#token_submit').prop('disabled', false);
 
     // formで入力された、カード情報を取得します。
     var card = {
