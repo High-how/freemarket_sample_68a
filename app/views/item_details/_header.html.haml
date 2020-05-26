@@ -1,0 +1,106 @@
+.header
+  .header__inner
+    .header__inner__main
+      .header__inner__main__icon
+        = image_tag "logo.png", class:"image", alt:"logo"
+      .header__inner__main__search
+        .header__inner__main__search__form
+          = form_with url: "a", local: true, method: :get, class: "header__inner__main__search__form__input" do |form|
+            .header__inner__main__search__form__input__box
+              = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
+            .header__inner__main__search__form__btn
+              = link_to "#" do
+                = image_tag "icon-search 1.png", class:"image", alt:"logo"
+    .header__inner__nav
+      .header__inner__nav__left
+        .header__inner__nav__left__category
+          %ul.menu
+            %li
+              = link_to "#" do
+                カテゴリー
+              %ul.sub-menu-nav
+                %li
+                  = link_to "#" do
+                    レディース
+                    %ul
+                      %li
+                        = link_to "#" do
+                          トップス
+                          %ul
+                            %li
+                              = link_to "#" do
+                                Tシャツ
+                      %li
+                        = link_to "#" do
+                          ジャケット
+                          %ul
+                            %li
+                              = link_to "#" do
+                                ダウンジャケット
+                      %li
+                        = link_to "#" do
+                          パンツ
+                          %ul
+                            %li
+                              = link_to "#" do
+                                デニム
+                %li
+                  = link_to "#" do
+                    メンズ
+                    %ul
+                      %li
+                        = link_to "#" do
+                          トップス
+                          %ul
+                            %li
+                              = link_to "#" do
+                                Tシャツ
+                      %li
+                        = link_to "#" do
+                          ジャケット
+                          %ul
+                            %li
+                              = link_to "#" do
+                                ダウンジャケット
+                      %li
+                        = link_to "#" do
+                          パンツ
+                          %ul
+                            %li
+                              = link_to "#" do
+                                デニム
+                %li
+                  = link_to "#" do
+                    ベビー・キッズ
+                    %ul
+                      %li
+                        = link_to "#" do
+                          洋服
+                          %ul
+                            %li
+                              = link_to "#" do
+                                洋服
+                      %li
+                        = link_to "#" do
+                          洋服
+                          %ul
+                            %li
+                              = link_to "#" do
+                                洋服
+                      %li
+                        = link_to "#" do
+                          洋服
+                          %ul
+                            %li
+                              = link_to "#" do
+                                洋服
+        .header__inner__nav__left__brand
+          = link_to "#" do
+            ブランド
+      .header__inner__nav__right
+        .header__inner__nav__right__login
+          = link_to "#" do
+            ログイン
+        .header__inner__nav__right__new
+          = link_to "#" do
+            新規会員登録

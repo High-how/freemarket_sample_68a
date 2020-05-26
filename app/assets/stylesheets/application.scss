@@ -1,6 +1,16 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "modules/item_details/variables.scss";
+@import "modules/item_details/header.scss";
+@import "modules/item_details/exhibition-item.scss";
+@import "modules/item_details/negotiation.scss";
+@import "modules/item_details/social-media-box.scss";
+@import "modules/item_details/user-items-box.scss";
+@import "modules/item_details/other-items-box.scss";
+@import "modules/item_details/crumbs.scss";
+@import "modules/item_details/banner.scss";
+@import "modules/item_details/footer.scss";
 @import "modules/wrapper";
 @import "modules/items";
 @import "signin/footer";

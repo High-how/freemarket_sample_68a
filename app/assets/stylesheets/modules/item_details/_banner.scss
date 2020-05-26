@@ -1,0 +1,39 @@
+//バーナー
+.app-banner {
+  background-image: url(/assets/bg-appBanner-pict.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  &__inner {
+    color: #fff;
+    text-align: center;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__icon {
+      @include boxWidth(100%);
+      @include display;
+      justify-content: center;
+      margin: 20px auto 0;
+      &__app {
+        margin-right: 10px;
+        .image {
+          @include boxSize(54px, 180px);
+        }
+      }
+      &__google {
+        .image {
+          @include boxSize(54px, 180px);
+        }
+      }
+    }
+  }
+}
