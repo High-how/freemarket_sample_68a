@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   // PAY.JPの公開鍵をセットします。
   Payjp.setPublicKey('pk_test_5c1a0c6d69ae96d31259b823');
 
