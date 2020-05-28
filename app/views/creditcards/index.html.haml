@@ -12,7 +12,6 @@
               - if @card.present?
                 .container
                   .creditcard-info
-                    -# = image_tag "creditcards/#{@card_image}",width:'34',height:'20', alt:'master-card'
                     %p.creditcard-info__number
                       = "**** **** **** " + @card_info.last4 #クレジットカードの下４桁を表示
                     %p.creditcard-info__period 
