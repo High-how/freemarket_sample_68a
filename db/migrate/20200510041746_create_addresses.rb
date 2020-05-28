@@ -11,7 +11,6 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.string :address, null: false
       t.string :building_name
       t.string :phone_number, :limit => 11
-      t.index :phone_number, unique: true
       t.references :user, null: false, foreign_key: true
       t.timestamps
     end

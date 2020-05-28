@@ -1,0 +1,25 @@
+= render "items/indexHeader"
+.mypage
+  .mypage__main
+    = render "users/left-content"
+    .mypage__main__right-content
+      .mypage__main__right-content__payment
+        .mypage__main__right-content__payment__title
+          支払い方法
+          .mypage__main__right-content__payment__title__single-container
+            .mypage__main__right-content__payment__title__creditcard_section
+              %h3 クレジットカード一覧
+              - if @card.present?
+                .container
+                  .creditcard-info
+                    %p.creditcard-info__number
+                      = "**** **** **** " + @card_info.last4 #クレジットカードの下４桁を表示
+                    %p.creditcard-info__period 
+                    = @exp_month + " / " + @exp_year
+                    = button_to "削除する", creditcard_path(@card), method: :delete, class:"creditcard-info__delete"
+              - else
+                .new-card
+                  = link_to new_creditcard_path, class:"new-card-btn" do
+                    %i.far.fa-credit-card 
+                    クレジットカードを追加する
+= render "items/indexFooter"

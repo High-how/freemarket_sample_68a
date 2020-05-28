@@ -15,4 +15,7 @@ Rails.application.routes.draw do
       get :category_search
     end
   end
+  resources :creditcards, only: [:index, :new, :create, :destroy]
+  resources :users, only: [:index, :show, :new] do
+  end
 end

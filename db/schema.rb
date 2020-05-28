@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2020_05_18_183837) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["phone_number"], name: "index_addresses_on_phone_number", unique: true
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -36,6 +35,14 @@ ActiveRecord::Schema.define(version: 2020_05_18_183837) do
     t.boolean "is_size", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "payjp_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_creditcards_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -88,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_183837) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "creditcards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
