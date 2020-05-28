@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   end
   root "items#index"
   resources :signin, only:[:index, :new]
+  resources :item_details, only:[:index]
   resources :login, only:[:index]
-  resources :items, only: [:new] do
+  resources :items, only: [:new, :create, :edit, :update, :destroy] do
+    collection do
+      get :category_search
+    end
   end
   resources :creditcards, only: [:index, :new, :create, :destroy]
   resources :users, only: [:index, :show, :new] do

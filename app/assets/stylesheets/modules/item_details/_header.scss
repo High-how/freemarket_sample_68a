@@ -1,0 +1,66 @@
+// ヘッダー
+.header {
+  @include boxSize(100px, 100%);
+  padding: 0 200px;
+  &__inner {
+    @include boxSize(100px, 100%);
+    padding: 15px 0 0;
+    &__main {
+      @include display;
+      position: relative;
+      &__icon {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        .image {
+          @include boxSize(40px, 140px);
+        }
+      }
+      &__search {
+        @include boxWidth(100%);
+        margin-top: 3px;
+        &__form {
+          &__input {
+            @include display;
+            &__box {
+              @include boxWidth(100%);
+            }
+            .search-input {
+              @include boxHeight(36px);
+              @include boxWidth(100%);
+              padding: 0 0 0 5px;
+            }
+          }
+          &__btn {
+            @include boxSize(36px, 36px);
+            background-color: #3CCACE;
+            padding: 8px;
+            .image {
+              @include boxSize(20px, 20px);
+            }
+          }
+        }
+      }
+    }
+    &__nav {
+      @include display;
+      font-size: 14px;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      &__left {
+        @include display;
+        @include boxWidth(217px);
+        &__category {
+          margin-right: 43px;
+        }
+      }
+      &__right {
+        @include display;
+        @include boxWidth(155px);
+        &__new {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}

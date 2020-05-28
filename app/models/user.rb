@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :password,length: { in: 7..128} 
   has_one :address
   has_one :creditcard
+  has_many :items, dependent: :destroy
 end
