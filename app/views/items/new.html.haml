@@ -33,10 +33,6 @@
                     .js-file_group{"data-index" => @item.images.count}
                       = file_field_tag :src, name: "image[images_attributes][#{@item.images.count}][src]", class: 'js-file'
                       .js-remove 削除
-                  -#   %br/
-                  -# ドラッグアンドドロップ
-                  -# %br
-                  -# またはクリックしてファイルをアップロード
         .input-error#item_image_error
         -# 商品名、商品の説明
         .sell-form-container.sell-container-all-padding.container-border-top
@@ -74,7 +70,7 @@
               = label :trading_status, '商品の状態',class: 'sell-label'
               %span.form-box 必須
               .select-wrap
-                = f.select :trading_status, TradingStatus.pluck(:status).unshift(""),{},{class: 'select-wrap__select-box'}
+                = f.select :trading_status, TradingStatus.pluck(:status), {prompt: "選択してください"}, class: 'select-wrap__select-box'
                 %i.fas.fa-angle-down
 
         -# 配送について
@@ -89,28 +85,28 @@
               = label :postage_payer, '配送料の負担',class: 'sell-label'
               %span.form-box 必須
               .select-wrap
-                = f.select :postage_payer, PostagePayer.pluck(:payer).unshift(""),{},{class: 'select-wrap__select-box'}
+                = f.select :postage_payer, PostagePayer.pluck(:payer), {prompt: "選択してください"}, {class: 'select-wrap__select-box'}
                 %i.fas.fa-angle-down
             .input-error#item_postage_payer_error
             %p.margin-2rem
               = label :postage_type, '配達方法',class: 'sell-label'
               %span.form-box 必須
               .select-wrap
-                = f.select :postage_type, PostageType.pluck(:type).unshift(""),{},{class: 'select-wrap__select-box'}
+                = f.select :postage_type, PostageType.pluck(:type), {prompt: "選択してください"}, {class: 'select-wrap__select-box'}
                 %i.fas.fa-angle-down
             .input-error#item_postage_type_error
             %p.margin-2rem
               = label :shipping_area, '発送元の地域',class: 'sell-label'
               %span.form-box 必須
             .select-wrap
-              = f.select :shipping_area, ShippingArea.pluck(:area).unshift(""),{},{class: 'select-wrap__select-box'}
+              = f.select :shipping_area, ShippingArea.pluck(:area), {prompt: "選択してください"}, {class: 'select-wrap__select-box'}
               %i.fas.fa-angle-down
             .input-error#item_shipping_area_error
             %p.margin-2rem
               = label :shipping_date, '発送までの日数',class: 'sell-label'
               %span.form-box 必須
             .select-wrap
-              = f.select :shipping_date, ShippingDate.pluck(:date).unshift(""),{},{class: 'select-wrap__select-box'}
+              = f.select :shipping_date, ShippingDate.pluck(:date), {prompt: "選択してください"}, {class: 'select-wrap__select-box'}
               %i.fas.fa-angle-down
             .input-error#item_shipping_date_error
         -# 販売価格
@@ -137,13 +133,10 @@
                 %p
                   販売手数料(10%)
               .sell-container-right__price-fee__price
-                %p
-                  ー
             .sell-container-right__price-benefit
-              %p
+              %p.sell-container-right__price-benefit__text
                 販売利益
-              %p
-                ー
+              .sell-container-right__price-benefit__price
         -# 出品ボタン
         .sell-container-all-padding.container-border-top
           .sell-container-submit

@@ -7,7 +7,7 @@ $(function () {
                 </p>
                 <div>
                 <div class="select-wrap size-box">
-                <select class="select-wrap__select-box" name="item[size]" id="item_size"><option value="選択してください">選択してください</option>
+                <select class="select-wrap__select-box" name="item[size]" id="item_size"><option value>選択してください</option>
                 <option value="XXS">XXS</option>
                 <option value="XS">XS</option>
                 <option value="S">S</option>
@@ -29,7 +29,7 @@ $(function () {
   function buildChild() {
     // 2つ目のセレクトボックスの外枠
     var html = `<div class="select-wrap child-box">
-    <select class="select-wrap__select-box" id="children-form" name="item[category_id]"><option value="">選択してください</option>
+    <select class="select-wrap__select-box" id="children-form" name="item[child_id]"><option value="">選択してください</option>
     </select>
     <i class="fas fa-angle-down"></i>
     </div>`
@@ -43,7 +43,7 @@ $(function () {
   function buildGrandChild() {
     // 3つ目のセレクトボックスの外枠
     var html = `<div class="select-wrap grandchild-box">
-    <select class="select-wrap__select-box" id="grand-children-form" name="item[category_id]"><option value="">選択してください</option>
+    <select class="select-wrap__select-box" id="grand-children-form" name="item[grandchild_id]"><option value="">選択してください</option>
     </select>
     <i class="fas fa-angle-down"></i>
     </div>`
