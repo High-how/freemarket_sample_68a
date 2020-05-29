@@ -2,11 +2,6 @@ require 'rails_helper'
 describe Item do
   describe '#create' do
 
-    # it "必須項目が全て入力されていれば出品できる" do
-    #   item = build(:item)
-    #   expect(item).to be_valid
-    # end
-# item = Item.new(name: "服", introduction: "新品です", postage_type: "未定", shipping_area: "北海道", trading_status: "未使用に近い", shipping_date: "１〜２日で発送", postage_payer: "送料込み(発送者負担)", price: "111", user_id: "1")
     it "nameがない場合、出品ができない" do
       item = build(:item, name: "")
       item.valid?
@@ -18,6 +13,12 @@ describe Item do
       item.valid?
       expect(item.errors[:introduction]).to include("can't be blank")
     end
+
+    it "categoryが空の時出品できない" do
+      item = build(:item, category_id: "")
+      item.valid?
+      expect(item.errors[:category_id]).to include("can't be blank")
+     end
 
     it "postage_typeがない場合、出品ができない" do
       item = build(:item, postage_type: "")

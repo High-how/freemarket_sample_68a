@@ -63,15 +63,15 @@ ActiveRecord::Schema.define(version: 2020_05_18_183837) do
     t.integer "size", null: false
     t.string "postage_payer", null: false
     t.integer "price", null: false
-    t.integer "seller_id"
-    t.integer "buyer_id"
+    t.bigint "seller_id", null: false
+    t.bigint "buyer_id"
     t.text "introduction", null: false
-    t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -98,5 +98,6 @@ ActiveRecord::Schema.define(version: 2020_05_18_183837) do
   add_foreign_key "creditcards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
 end

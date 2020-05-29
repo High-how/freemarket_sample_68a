@@ -1,11 +1,13 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :user
+  belongs_to :seller, class_name: "User"
+  belongs_to :buyer, class_name: "User", optional: true
+
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :category
 
-  # バリデーション
+  
   validates :name,                length:    {maximum: 40},                               presence: true
   validates :introduction,        length:    {maximum: 1000},                             presence: true
   validates :category_id,         exclusion: {in: %w(選択してください)},                     presence: true

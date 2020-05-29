@@ -27,6 +27,9 @@ $(document).on('turbolinks:load', function () {
       "item[introduction]": {
         required: true
       },
+      "item[category_id]": {
+        required: true
+      },
       "item[trading_status]": {
         required: true 
       },
@@ -49,7 +52,7 @@ $(document).on('turbolinks:load', function () {
 
     messages: {
       "item[images_attributes][0][src]": {
-        required: "選択してください"
+        required: "画像がありません"
       },
       "item[name]": {
         required: "入力してください"
@@ -57,7 +60,9 @@ $(document).on('turbolinks:load', function () {
       "item[introduction]": {
         required: "入力してください"
       },
-      
+      "item[category_id]": {
+        required: "選択してください"
+      },
       "item[trading_status]": {
         required: "選択してください", 
       },
@@ -91,6 +96,9 @@ $(document).on('turbolinks:load', function () {
         case "item[introduction]":
           error.insertAfter($('#item_introduction'));
           break;
+        case "item[category_id]":
+          error.insertAfter($('#parent-form'));
+          break;
         case "item[trading_status]":
           error.insertAfter($('#item_trading_status'));
           break;
@@ -113,33 +121,13 @@ $(document).on('turbolinks:load', function () {
           error.insertAfter(element);
       }
     },
-
     
-
     errorClass: "invalid",
     errorElement: "p",
     validClass: "valid",
   })
 
-  $("#item_images_attributes_0_src, #item_name, #item_introduction, #item_trading_status, #item_postage_payer, #item_postage_type, #item_shipping_area, #item_shipping_date, #item_price").blur(function () {
+  $("#item_images_attributes_0_src, #item_name, #item_introduction, #parent-form, #item_trading_status, #item_postage_payer, #item_postage_type, #item_shipping_area, #item_shipping_date, #item_price").blur(function () {
     $(this).valid();
   });
-
-  // $(function() {
-  //     var password  = '#item_password_confirmation';
-  //     var passcheck = '#check';
-    
-  //     changeInputtype(password, passcheck);
-  // });
-
-
-  // function changeInputtype(password, passcheck) {
-  //     $(passcheck).change(function() {       
-  //         if ($(this).prop('checked')) {
-  //             $(password).attr('type','text');
-  //         } else {
-  //             $(password).attr('type','password');
-  //         }
-  //     });
-  // }
 });
