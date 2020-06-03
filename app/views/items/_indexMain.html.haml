@@ -103,7 +103,7 @@
             = link_to "#" do
               .main__pickup__box__lists__list__img
                 - item.images.first(1).each do |image|
-                  %img{:src => "#{image.src}", width: "220", height: '150'}
+                  = image_tag image.src.url, width: "220", height: '150'
               .main__pickup__box__lists__list__body
                 .main__pickup__box__lists__list__body__name
                   = item.name
@@ -134,7 +134,7 @@
             = link_to "#" do
               .main__pickup__box__lists__list__img
                 - item.images.first(1).each do |image|
-                  %img{:src => "#{image.src}", width: "220", height: '150'}
+                  = image_tag image.src.url, width: "220", height: '150'
               .main__pickup__box__lists__list__body
                 .main__pickup__box__lists__list__body__name
                   = item.name
