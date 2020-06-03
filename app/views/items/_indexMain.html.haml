@@ -98,54 +98,29 @@
         = link_to "#" do
           新規投稿商品 
       .main__pickup__box__lists
-        .main__pickup__box__lists__list
-          = link_to "#" do
-            .main__pickup__box__lists__list__img
-              = image_tag "icon-04.png", class:"image", alt:"logo"
-            .main__pickup__box__lists__list__body
-              .main__pickup__box__lists__list__body__name
-                おかね
-              .main__pickup__box__lists__list__body__data
-                .main__pickup__box__lists__list__body__data__box
-                  .main__pickup__box__lists__list__body__data__money
-                    30000円
-                  .main__pickup__box__lists__list__body__data__like
-                    = icon('fa', 'star')
-                    0
-                .main__pickup__box__lists__list__body__data__tax
-                  (税込)
-        .main__pickup__box__lists__list
-          = link_to "#" do
-            .main__pickup__box__lists__list__img
-              = image_tag "icon-04.png", class:"image", alt:"logo"
-            .main__pickup__box__lists__list__body
-              .main__pickup__box__lists__list__body__name
-                現金
-              .main__pickup__box__lists__list__body__data
-                .main__pickup__box__lists__list__body__data__box
-                  .main__pickup__box__lists__list__body__data__money
-                    3000000円
-                  .main__pickup__box__lists__list__body__data__like
-                    = icon('fa', 'star')
-                    0
-                .main__pickup__box__lists__list__body__data__tax
-                  (税込)
-        .main__pickup__box__lists__list
-          = link_to "#" do
-            .main__pickup__box__lists__list__img
-              = image_tag "icon-04.png", class:"image", alt:"logo"
-            .main__pickup__box__lists__list__body
-              .main__pickup__box__lists__list__body__name
-                money
-              .main__pickup__box__lists__list__body__data
-                .main__pickup__box__lists__list__body__data__box
-                  .main__pickup__box__lists__list__body__data__money
-                    30000000円
-                  .main__pickup__box__lists__list__body__data__like
-                    = icon('fa', 'star')
-                    0
-                .main__pickup__box__lists__list__body__data__tax
-                  (税込)
+        - @items.last(3).each do |item|
+          .main__pickup__box__lists__list
+            = link_to "#" do
+              .main__pickup__box__lists__list__img
+                - item.images.first(1).each do |image|
+                  %img{:src => "#{image.src}", width: "220", height: '150'}
+              .main__pickup__box__lists__list__body
+                .main__pickup__box__lists__list__body__name
+                  = item.name
+                .main__pickup__box__lists__list__body__data
+                  .main__pickup__box__lists__list__body__data__box
+                    .main__pickup__box__lists__list__body__data__box__money
+                      %p
+                        ¥
+                        = item.price
+                    .main__pickup__box__lists__list__body__data__like
+                      = icon('fa', 'star')
+                      0
+                  .main__pickup__box__lists__list__body__data__tax
+                    (税込)
+                    - if current_user.id = item.id
+                      = link_to '編集', edit_item_path(item)
+                      = link_to '削除', item_path(item), method: :delete
   .main__pickup
     .main__pickup__head
       ピックアップブランド
@@ -154,51 +129,26 @@
         = link_to "#" do
           アーカイバ
       .main__pickup__box__lists
-        .main__pickup__box__lists__list
-          = link_to "#" do
-            .main__pickup__box__lists__list__img
-              = image_tag "icon-04.png", class:"image", alt:"logo"
-            .main__pickup__box__lists__list__body
-              .main__pickup__box__lists__list__body__name
-                おかね
-              .main__pickup__box__lists__list__body__data
-                .main__pickup__box__lists__list__body__data__box
-                  .main__pickup__box__lists__list__body__data__money
-                    30000円
-                  .main__pickup__box__lists__list__body__data__like
-                    = icon('fa', 'star')
-                    0
-                .main__pickup__box__lists__list__body__data__tax
-                  (税込)
-        .main__pickup__box__lists__list
-          = link_to "#" do
-            .main__pickup__box__lists__list__img
-              = image_tag "icon-04.png", class:"image", alt:"logo"
-            .main__pickup__box__lists__list__body
-              .main__pickup__box__lists__list__body__name
-                現金
-              .main__pickup__box__lists__list__body__data
-                .main__pickup__box__lists__list__body__data__box
-                  .main__pickup__box__lists__list__body__data__money
-                    3000000円
-                  .main__pickup__box__lists__list__body__data__like
-                    = icon('fa', 'star')
-                    0
-                .main__pickup__box__lists__list__body__data__tax
-                  (税込)
-        .main__pickup__box__lists__list
-          = link_to "#" do
-            .main__pickup__box__lists__list__img
-              = image_tag "icon-04.png", class:"image", alt:"logo"
-            .main__pickup__box__lists__list__body
-              .main__pickup__box__lists__list__body__name
-                money
-              .main__pickup__box__lists__list__body__data
-                .main__pickup__box__lists__list__body__data__box
-                  .main__pickup__box__lists__list__body__data__money
-                    30000000円
-                  .main__pickup__box__lists__list__body__data__like
-                    = icon('fa', 'star')
-                    0
-                .main__pickup__box__lists__list__body__data__tax
-                  (税込)
+        - @items.last(3).each do |item|
+          .main__pickup__box__lists__list
+            = link_to "#" do
+              .main__pickup__box__lists__list__img
+                - item.images.first(1).each do |image|
+                  %img{:src => "#{image.src}", width: "220", height: '150'}
+              .main__pickup__box__lists__list__body
+                .main__pickup__box__lists__list__body__name
+                  = item.name
+                .main__pickup__box__lists__list__body__data
+                  .main__pickup__box__lists__list__body__data__box
+                    .main__pickup__box__lists__list__body__data__money
+                      %p
+                        ¥
+                        = item.price
+                    .main__pickup__box__lists__list__body__data__like
+                      = icon('fa', 'star')
+                      0
+                  .main__pickup__box__lists__list__body__data__tax
+                    (税込)
+                    - if current_user.id = item.id
+                      = link_to '編集', edit_item_path(item)
+                      = link_to '削除', item_path(item), method: :delete

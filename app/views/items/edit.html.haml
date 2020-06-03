@@ -33,10 +33,6 @@
                     .js-file_group{"data-index" => @item.images.count}
                       = file_field_tag :src, name: "image[images_attributes][#{@item.images.count}][src]", class: 'js-file'
                       .js-remove 削除
-                  -#   %br/
-                  -# ドラッグアンドドロップ
-                  -# %br
-                  -# またはクリックしてファイルをアップロード
         .input-error#item_image_error
         -# 商品名、商品の説明
         .sell-form-container.sell-container-all-padding.container-border-top
@@ -57,17 +53,15 @@
             商品の詳細
           .sell-container-right
             %p
-              -# = label :category_index, 'カテゴリー',class: 'sell-label'
+              = label :category, 'カテゴリー',class: 'sell-label'
               %span.form-box 必須
-              .select-wrap
-                .select-wrap__icon
-                  = icon('fas', 'angle-down')
-                -# = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してくだい"}, class: "select-wrap__select-box",id:"parent_category"
-                -#   %option{value: "0"}  選択してください
-            -# .category_wrapper
-            -#   .select-wrap.category_index_wrapper
-                -# = f.collection_select :category_id, @params, :id, :name, {prompt: "選択してください"}, id:"parent_category"
-              .input-error#item_category_index_id_error
+              %div.category-area
+                #parent-form-area
+                  .select-wrap
+                    = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"}, class: "select-wrap__select-box", id:"parent-form"
+                    %i.fas.fa-angle-down
+                #children-form-area
+                #grandchild-form-area
             %p.margin-2rem
               = label :brand, 'ブランド',class: 'sell-label'
               %span.form-box-option 任意
@@ -76,12 +70,9 @@
               = label :trading_status, '商品の状態',class: 'sell-label'
               %span.form-box 必須
               .select-wrap
-                .select-wrap__icon
-                  = icon('fas', 'angle-down')
-                = f.select :trading_status, TradingStatus.pluck(:status).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
-                -# %select.select-wrap__select-box{name: "status", id: "status"}
-                -#   %option{value: "0"}  選択してください
-              -# = f.collection_select :trading_status_id, TradingStatus.group(:status).order(id: :asc), :id, :status, {prompt: "選択してください"},id:"newSelect"
+                = f.select :trading_status, TradingStatus.pluck(:status), {prompt: "選択してください"}, class: 'select-wrap__select-box'
+                %i.fas.fa-angle-down
+
         -# 配送について
         .sell-container-all-padding.container-border-top.flex
           .sell-container-left
@@ -94,47 +85,29 @@
               = label :postage_payer, '配送料の負担',class: 'sell-label'
               %span.form-box 必須
               .select-wrap
-                .select-wrap__icon
-                  = icon('fas', 'angle-down')
-                = f.select :postage_payer, PostagePayer.pluck(:payer).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
-                -# = select :postage_payer, :name, Item.postage_payers.keys.to_a, include_blank: true
-                -# %select.select-wrap__select-box{name: "payer", id: "payer"}
-                -#   %option{value: "0"}  選択してください
-              -# = f.collection_select :postage_payer_id, PostagePayer.group(:payer).order(id: :asc), :id, :payer, {prompt: "選択してください"},id:"newSelect"
+                = f.select :postage_payer, PostagePayer.pluck(:payer), {prompt: "選択してください"}, {class: 'select-wrap__select-box'}
+                %i.fas.fa-angle-down
             .input-error#item_postage_payer_error
             %p.margin-2rem
               = label :postage_type, '配達方法',class: 'sell-label'
               %span.form-box 必須
               .select-wrap
-                .select-wrap__icon
-                  = icon('fas', 'angle-down')
-                = f.select :postage_type, PostageType.pluck(:type).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
-              -#   %select.select-wrap__select-box{name: "", id: ""}
-              -#     %option{value: "0"}  選択してください
-              -# -# = f.collection_select :postage_type_id, PostageType.all, :name, :name, {prompt: "選択してください"}
+                = f.select :postage_type, PostageType.pluck(:type), {prompt: "選択してください"}, {class: 'select-wrap__select-box'}
+                %i.fas.fa-angle-down
             .input-error#item_postage_type_error
             %p.margin-2rem
               = label :shipping_area, '発送元の地域',class: 'sell-label'
               %span.form-box 必須
             .select-wrap
-              .select-wrap__icon
-                = icon('fas', 'angle-down')
-              = f.select :shipping_area, ShippingArea.pluck(:area).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
-              -# %select.select-wrap__select-box{name: "area", id: "area"}
-              -#   %option{value: "0"}  選択してください
-            -# = f.collection_select :shipping_area_id, ShippingArea.group(:area).order(id: :asc), :id, :area, {prompt: "選択してください"},id:"newSelect"
+              = f.select :shipping_area, ShippingArea.pluck(:area), {prompt: "選択してください"}, {class: 'select-wrap__select-box'}
+              %i.fas.fa-angle-down
             .input-error#item_shipping_area_error
             %p.margin-2rem
               = label :shipping_date, '発送までの日数',class: 'sell-label'
               %span.form-box 必須
             .select-wrap
-              .select-wrap__icon
-                = icon('fas', 'angle-down')
-              = f.select :shipping_date, ShippingDate.pluck(:date).unshift('選択してください'),{},{class: 'default-select select-wrap__sell-select-box'}
-              -# = select :shipping_date, :name, Item.shipping_dates.keys.to_a
-              -# %select.select-wrap__select-box{name: "date", id: "date"}
-              -#   %option{value: "0"}  選択してください
-              -# = f.collection_select :shipping_date_id, ShippingDate.group(:date).order(id: :asc), :id, :date, {prompt: "選択してください"},id:"newSelect"
+              = f.select :shipping_date, ShippingDate.pluck(:date), {prompt: "選択してください"}, {class: 'select-wrap__select-box'}
+              %i.fas.fa-angle-down
             .input-error#item_shipping_date_error
         -# 販売価格
         .sell-container-all-padding.container-border-top.flex
@@ -160,13 +133,10 @@
                 %p
                   販売手数料(10%)
               .sell-container-right__price-fee__price
-                %p
-                  ー
             .sell-container-right__price-benefit
-              %p
+              %p.sell-container-right__price-benefit__text
                 販売利益
-              %p
-                ー
+              .sell-container-right__price-benefit__price
         -# 出品ボタン
         .sell-container-all-padding.container-border-top
           .sell-container-submit
@@ -192,4 +162,5 @@
               = link_to "加盟店規約"
               に同意したことになります。
   = render 'signin/footer'
--# コメントアウトの箇所はサーバーサイドの実装で使用予定
+= render partial: 'share/simple-header'
+
