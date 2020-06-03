@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load',function () {
   function buildSize() {
     var html = `<div class="size-content">
                 <p class="margin-2rem">

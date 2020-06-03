@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',function(){
   $("ul.menu li").mouseenter(function(){
      $(this).siblings().find("ul").hide();
      $(this).children().slideDown("slow");
@@ -8,7 +8,7 @@ $(function(){
   });
 });
 
-$(function(){
+$(document).on('turbolinks:load',function(){
   $('#item_price').on('input', function(){
     var s = $('#item_price').val();
     var result = Math.round(s * 0.1)
