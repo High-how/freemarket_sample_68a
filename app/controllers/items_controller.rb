@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, except: [:index, :new, :create, :category_search]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.all
   end
 
   def new
@@ -36,6 +36,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def update

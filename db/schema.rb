@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_183837) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["phone_number"], name: "index_addresses_on_phone_number", unique: true
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -60,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_183837) do
     t.string "brand"
     t.string "trading_status", null: false
     t.string "shipping_date", null: false
-    t.integer "size", null: false
+    t.integer "size"
     t.string "postage_payer", null: false
     t.integer "price", null: false
     t.bigint "seller_id", null: false
