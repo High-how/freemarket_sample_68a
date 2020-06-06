@@ -7,7 +7,7 @@ class CreditcardsController < ApplicationController
     if @card.present?
       # 登録している場合,PAY.JPからカード情報を取得する
       # PAY.JPの秘密鍵をセットする。
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       # PAY.JPから顧客情報を取得する。
       customer = Payjp::Customer.retrieve(@card.payjp_id)
       # PAY.JPの顧客情報から、デフォルトで使うクレジットカードを取得する。
