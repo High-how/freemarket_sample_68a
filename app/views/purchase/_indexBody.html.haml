@@ -9,6 +9,7 @@
         .buy-main__item__image-deta__inner__box
           %h3.item-image
             = image_tag "icon-01.png", class:"img", alt:"buy-image"
+            /以下コメントアウトはサーバーサイド実装の際に変更。
             /= image_tag(@item.images[0].src.url,class:"img")
           .item-deta
             %p.item-deta__name
