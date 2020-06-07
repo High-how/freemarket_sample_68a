@@ -1,0 +1,77 @@
+.buy-main
+  .buy-main__item
+
+    .buy-main__item__header
+      %h2 購入内容の確認
+
+    .buy-main__item__image-deta
+      .buy-main__item__image-deta__inner
+        .buy-main__item__image-deta__inner__box
+          %h3.item-image
+            = image_tag "icon-01.png", class:"img", alt:"buy-image"
+            /以下コメントアウトはサーバーサイド実装の際に変更。
+            /= image_tag(@item.images[0].src.url,class:"img")
+          .item-deta
+            %p.item-deta__name
+              VICTORINOX ビクトリノックス クライマー ツールナイフ マルチツール 十徳ナイフ キャンピングナイフ 万能ナイフ
+              /= @item.name
+            %p.item-deta__text
+              %span.price
+                ¥5,104
+                /= number_to_currency(@item.price,format: "%u%n",unit:"¥",precision: 0)
+              %span.fee
+                （税込み） 送料込み
+
+
+    .buy-main__item__buyer-deta
+      .buy-main__item__buyer-deta__inner
+        = form_with url: purchase_index_path do |f|
+          %ul.price
+            %li.price__table
+              .price__table__pay
+                支払い金額
+              .price__table__money
+                ¥5,104
+              
+          .point
+            = check_box_tag :point_box
+            = label_tag :point_tag, "ポイントを使用(所持ポイント : p)"
+
+          .cards
+            .cards__inner
+              .clearfix.cards__inner__box
+                %h3.left
+                  支払い方法
+                .right
+                  = link_to new_creditcard_path do
+                    変更する
+              .cards__inner__text
+                = link_to new_creditcard_path do
+                  .cards__inner__text__icon
+                    = icon('fas', 'plus-circle')
+                    登録してください
+              .cards__inner__logo
+
+
+          .send
+            .send__inner
+              .clearfix.send__inner__box
+                %h3.left
+                  配送先
+                .right
+                  = link_to "#" do
+                    変更する
+              .send__inner__text
+                〒
+                = @address.postal_code
+                .send__inner__text__inline
+                  = @address.prefecture
+                  = @address.city
+                  = @address.address
+                  .send__inner__text__inline2
+                    = @address.family_name
+                    = @address.first_name
+
+          .buy-btn
+            = link_to "#" do
+              = f.submit '購入する', class:"buy-btn__submit"

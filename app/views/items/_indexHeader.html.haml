@@ -2,7 +2,8 @@
   .header__inner
     .header__inner__main
       .header__inner__main__icon
-        = image_tag "logo.png", class:"image", alt:"logo"
+        = link_to root_path do
+          = image_tag "logo.png", class:"image", alt:"logo"
       .header__inner__main__search
         .header__inner__main__search__form
           = form_with url: "a", local: true, method: :get, class: "header__inner__main__search__form__input" do |form|#f5f5f5
