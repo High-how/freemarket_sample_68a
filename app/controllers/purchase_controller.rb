@@ -4,8 +4,8 @@ class PurchaseController < ApplicationController
   def index
     #商品/ユーザー/クレジットカードの変数設定
     @user = current_user
-    @creditcard = Creditcard.where(user_id: current_user.id).first
-    @address = Address.where(user_id: current_user.id).first
+    @creditcard = Creditcard.find_by(user_id: current_user.id)
+    @address = Address.find_by(user_id: current_user.id)
     #@item = Item.find(params[:id])
 
     if @creditcard.blank?
@@ -21,7 +21,7 @@ class PurchaseController < ApplicationController
 
   def purchase
     #クレジットカードと製品の変数を設定
-    @creditcard = Creditcard.where(user_id: current_user.id).first
+    @creditcard = Creditcard.find_by(user_id: current_user.id)
     @item = Item.find(params[:id])
     #Payjpの秘密鍵を取得
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
