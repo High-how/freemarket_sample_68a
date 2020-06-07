@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   resources :creditcards, only: [:index, :new, :create, :destroy]
   resources :users, only: [:index, :show, :new] do
   end
+  resources :purchase, only: [:index] do
+  end
 end
