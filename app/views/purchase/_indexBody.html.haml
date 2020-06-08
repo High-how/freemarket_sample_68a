@@ -17,7 +17,7 @@
               %span.price
                 = number_to_currency(@item.price,format: "%u%n",unit:"¥",precision: 0)
               %span.fee
-                （税込み） 送料込み
+                （税込み)
 
 
     .buy-main__item__buyer-deta
@@ -67,5 +67,5 @@
                     = @address.first_name
 
           .buy-btn
-            = link_to "#" do
+            = link_to done_purchase_path do
               = f.submit '購入する', class:"buy-btn__submit"
