@@ -100,7 +100,7 @@
       .main__pickup__box__lists
         - @items.last(3).each do |item|
           .main__pickup__box__lists__list
-            = link_to "/items/#{item.id}", method: :get do
+            = link_to item_path(item.id) do
               .main__pickup__box__lists__list__img
                 - item.images.first(1).each do |image|
                   = image_tag image.src.url, width: "220", height: '150'
@@ -132,7 +132,7 @@
       .main__pickup__box__lists
         - @items.last(3).each do |item|
           .main__pickup__box__lists__list
-            = link_to "/items/#{item.id}", method: :get do
+            = link_to item_path(item.id) do
               .main__pickup__box__lists__list__img
                 - item.images.first(1).each do |image|
                   = image_tag image.src.url, width: "220", height: '150'
