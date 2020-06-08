@@ -46,10 +46,8 @@
                   = link_to new_creditcard_path do
                     変更する
               .cards__inner__text
-                = link_to new_creditcard_path do
-                  .cards__inner__text__icon
-                    = icon('fas', 'plus-circle')
-                    登録してください
+                カード番号
+                = "**** **** **** " + @creditcard_information.last4
               .cards__inner__logo
 
 

@@ -6,7 +6,7 @@ class PurchaseController < ApplicationController
     @user = current_user
     @creditcard = Creditcard.find_by(user_id: current_user.id)
     @address = Address.find_by(user_id: current_user.id)
-    #@item = Item.find(params[:id])
+    #@item = Item.find(params[:item_id])
 
     if @creditcard.blank?
       #登録された情報がない場合にカード登録画面に移動
@@ -14,8 +14,8 @@ class PurchaseController < ApplicationController
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
-      #customer = Payjp::Customer.retrieve(@creditcard.customer_id)
-      #@creditcard_information = customer.cards.retrieve(@creditcard.card_id)
+      customer = Payjp::Customer.retrieve(@creditcard.payjp_id)
+      @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
     end
   end
 
@@ -28,7 +28,7 @@ class PurchaseController < ApplicationController
     #payjp経由で支払いを実行
     charge = Payjp::Charge.create(
       amount: @item.price,
-      #customer: Payjp::Customer.retrieve(@creditcard.customer_id),
+      customer: Payjp::Customer.retrieve(@creditcard.pay_id),
       currency: 'jpy'
     )
     #製品のbuyer_idを付与

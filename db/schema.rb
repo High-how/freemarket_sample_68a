@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2020_05_18_183837) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["phone_number"], name: "index_addresses_on_phone_number", unique: true
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -41,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_183837) do
   create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "payjp_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_creditcards_on_user_id"
