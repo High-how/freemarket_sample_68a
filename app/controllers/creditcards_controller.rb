@@ -52,7 +52,7 @@ class CreditcardsController < ApplicationController
         card: params['payjpToken'],
         metadata: {user_id: current_user.id}
       )
-      @card = Creditcard.new(user_id: current_user.id, payjp_id: customer.id)
+      @card = Creditcard.new(user_id: current_user.id, payjp_id: customer.id, card_id: customer.default_card)
       if @card.save
         if request.referer&.include?("/registrations/step5")
           redirect_to controller: 'registrations', action: "step6"

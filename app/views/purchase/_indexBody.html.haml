@@ -8,17 +8,14 @@
       .buy-main__item__image-deta__inner
         .buy-main__item__image-deta__inner__box
           %h3.item-image
-            = image_tag "icon-01.png", class:"img", alt:"buy-image"
-            /以下コメントアウトはサーバーサイド実装の際に変更。
-            /= image_tag(@item.images[0].src.url,class:"img")
+            - @item.images.first(1).each do |item|
+              = image_tag item.src.url, class:"img", alt:"buy-image"
           .item-deta
             %p.item-deta__name
-              VICTORINOX ビクトリノックス クライマー ツールナイフ マルチツール 十徳ナイフ キャンピングナイフ 万能ナイフ
-              /= @item.name
+              = @item.name
             %p.item-deta__text
               %span.price
-                ¥5,104
-                /= number_to_currency(@item.price,format: "%u%n",unit:"¥",precision: 0)
+                = number_to_currency(@item.price,format: "%u%n",unit:"¥",precision: 0)
               %span.fee
                 （税込み） 送料込み
 
@@ -31,7 +28,7 @@
               .price__table__pay
                 支払い金額
               .price__table__money
-                ¥5,104
+                = number_to_currency(@item.price,format: "%u%n",unit:"¥",precision: 0)
               
           .point
             = check_box_tag :point_box
@@ -46,10 +43,7 @@
                   = link_to new_creditcard_path do
                     変更する
               .cards__inner__text
-                = link_to new_creditcard_path do
-                  .cards__inner__text__icon
-                    = icon('fas', 'plus-circle')
-                    登録してください
+                = "**** **** **** " + @creditcard_information.last4
               .cards__inner__logo
 
 
