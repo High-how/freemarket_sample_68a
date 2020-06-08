@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :signin, only:[:index, :new]
   resources :item_details, only:[:index]
   resources :login, only:[:index]
-  resources :items, only: [:new, :create, :edit, :update, :destroy] do
+  resources :items, only: [:new, :create, :edit, :update, :destroy, :show] do
     collection do
       get :category_search
     end

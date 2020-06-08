@@ -52,6 +52,10 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @parents = Category.all.order("id ASC").limit(13)
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :size, :introduction, :trading_status, :postage_payer, :postage_type, :shipping_area, :shipping_date, :price, :brand, :category_id, images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
