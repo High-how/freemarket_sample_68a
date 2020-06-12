@@ -22,7 +22,7 @@
 
     .buy-main__item__buyer-deta
       .buy-main__item__buyer-deta__inner
-        = form_with url: purchase_index_path do |f|
+        = form_with url: pay_purchase_path do |f|
           %ul.price
             %li.price__table
               .price__table__pay
@@ -67,5 +67,4 @@
                     = @address.first_name
 
           .buy-btn
-            = link_to done_purchase_path do
-              = f.submit '購入する', class:"buy-btn__submit"
+            = f.submit '購入する', class:"buy-btn__submit", url: "pay_purchase_path", method: :post

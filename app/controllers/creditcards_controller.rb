@@ -85,9 +85,9 @@ class CreditcardsController < ApplicationController
   end
   
   def buy
-    @product = Product.find(params[:product_id])
+    @item = Item.find(params[:item_id])
     # すでに購入されていないか？
-    if @product.buyer.present? 
+    if @item.buyer.present? 
       redirect_back(fallback_location: root_path) 
     elsif @card.blank?
       # カード情報がなければ、買えないから戻す
@@ -98,17 +98,17 @@ class CreditcardsController < ApplicationController
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       # 請求を発行
       Payjp::Charge.create(
-      amount: @product.price,
-      customer: @card.customer_id,
+      amount: @item.price,
+      customer: @card.payjp_id,
       currency: 'jpy',
       )
       # 売り切れなので、productの情報をアップデートして売り切れにします。
-      if @product.update(buyer_id: current_user.id)
+      if @item.update(buyer_id: current_user.id)
         flash[:notice] = '購入しました。'
-        redirect_to controller: 'products', action: 'show', id: @product.id
+        redirect_to controller: 'items', action: 'show', id: @item.id
       else
         flash[:alert] = '購入に失敗しました。'
-        redirect_to controller: 'products', action: 'show', id: @product.id
+        redirect_to controller: 'items', action: 'show', id: @item.id
       end
     end
   end
