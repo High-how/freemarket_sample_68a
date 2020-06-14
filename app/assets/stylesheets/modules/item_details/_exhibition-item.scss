@@ -329,7 +329,7 @@
     }
 
     &__price-box{
-      @include boxSize(50px, 620px);
+      @include boxSize(60px, 620px);
       background-color: #fff;
       display: flex;
       justify-content: center;
@@ -356,19 +356,66 @@
       }
     }
 
+
+
+
+
+
+
+
+
     &__buy-btn{
-      @include boxSize(50px, 620px);
-      font-size: 24px;
-      background-color: #EA352D;
+      @include boxSize(100%, 100%);
       margin-top: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+      .item-delete-btn{
+        height: 60px;
+        color: #ffffff;
+        font-size: 24px;
+        background-color: blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .item-edit-btn{
+        height: 60px;
+        color: #ffffff;
+        font-size: 24px;
+        background-color: green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
       .item-buy-btn{
+        height: 60px;
         color: #ffffff;
+        font-size: 24px;
+        background-color: #EA352D;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .disabled-button{
+        height: 60px;
+        color: #ffffff;
+        font-size: 24px;
+        background-color: #888888;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: not-allowed;
       }
     }
+    
+
+
+
+
+
+
 
     &__description{
       height: 100%;
@@ -376,6 +423,7 @@
       background-color: #fff;
       font-size: 18px;
       color: #333333;
+      padding-top: 32px;
 
       &__left-button{
         height: 33px;
