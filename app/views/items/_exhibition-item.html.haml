@@ -3,6 +3,10 @@
     .exhibition-item__name
       = @item.name
     .exhibition-item__main-content
+      - if @item.buyer_id.present?
+        .exhibition-item__main-content__sold-out
+          .exhibition-item__main-content__sold-out__inner
+            SOLD
       .exhibition-item__main-content__item-photos
         .exhibition-item__main-content__item-photos__choice-photo
           - @item.images.first(1).each do |item|
