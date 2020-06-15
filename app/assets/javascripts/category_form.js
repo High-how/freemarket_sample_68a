@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function () {
+$(function () {
   function buildSize() {
     var html = `<div class="size-content">
                 <p class="margin-2rem">
@@ -7,7 +7,7 @@ $(document).on('turbolinks:load',function () {
                 </p>
                 <div>
                 <div class="select-wrap size-box">
-                <select class="select-wrap__select-box" name="item[size]" id="item_size"><option value>選択してください</option>
+                <select class="select-wrap__select-box" name="item[size]" id="item_size"><option value="">選択してください</option>
                 <option value="XXS">XXS</option>
                 <option value="XS">XS</option>
                 <option value="S">S</option>
