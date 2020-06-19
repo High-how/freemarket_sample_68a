@@ -1,12 +1,12 @@
 class PurchaseController < ApplicationController
   require 'payjp'
+  before_action :set_item, only: [:index, :pay]
 
   def index
     #商品/ユーザー/クレジットカードの変数設定
     @user = current_user
     @creditcard = Creditcard.find_by(user_id: current_user.id)
     @address = Address.find_by(user_id: current_user.id)
-    @item = Item.find(params[:id])
 
     if @creditcard.blank?
       #登録された情報がない場合にカード登録画面に移動
@@ -22,7 +22,6 @@ class PurchaseController < ApplicationController
   def pay
     #クレジットカードと製品の変数を設定
     @creditcard = Creditcard.find_by(user_id: current_user.id)
-    @item = Item.find(params[:id])
     #Payjpの秘密鍵を取得
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     #payjp経由で支払いを実行
@@ -35,6 +34,11 @@ class PurchaseController < ApplicationController
     @item_buyer= Item.find(params[:id])
     @item_buyer.update( buyer_id: current_user.id)
     redirect_to done_purchase_path
+  end
+
+  private
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
