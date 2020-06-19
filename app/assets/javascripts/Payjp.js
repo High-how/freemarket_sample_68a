@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function(){
   // PAY.JPの公開鍵をセットします。
-  Payjp.setPublicKey('pk_test_b26b3aad752f8a083d059f05');
+  Payjp.setPublicKey('pk_test_be8633887a5b6c329dfe70bc');
 
   //formのsubmitを止めるために, クレジットカード登録のformを定義します。
   var form = $(".mypage__main__right-content__data__box__form");
