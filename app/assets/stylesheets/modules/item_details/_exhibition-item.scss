@@ -50,6 +50,28 @@
       margin: 16px 0 0;
       display: flex;
 
+      &__sold-out{
+        z-index: 1;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 60px solid #ea352d ;
+        border-right: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+        border-left: 60px solid #ea352d ;
+
+        &__inner{
+          transform: rotate(-45deg);
+          font-size: 28px;
+          margin:-35px 0px 0px -55px;
+          color: #fff;
+          letter-spacing: 2px;
+          font-weight: 600;
+          position: absolute;
+          left: 0;
+        }
+      }
+
       &__item-photos{
         @include boxSize(420px, 300px);
 
@@ -329,7 +351,7 @@
     }
 
     &__price-box{
-      @include boxSize(50px, 620px);
+      @include boxSize(60px, 620px);
       background-color: #fff;
       display: flex;
       justify-content: center;
@@ -356,19 +378,66 @@
       }
     }
 
+
+
+
+
+
+
+
+
     &__buy-btn{
-      @include boxSize(50px, 620px);
-      font-size: 24px;
-      background-color: #EA352D;
+      @include boxSize(100%, 100%);
       margin-top: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+      .item-delete-btn{
+        height: 60px;
+        color: #ffffff;
+        font-size: 24px;
+        background-color: blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .item-edit-btn{
+        height: 60px;
+        color: #ffffff;
+        font-size: 24px;
+        background-color: green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
       .item-buy-btn{
+        height: 60px;
         color: #ffffff;
+        font-size: 24px;
+        background-color: #EA352D;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .disabled-button{
+        height: 60px;
+        color: #ffffff;
+        font-size: 24px;
+        background-color: #888888;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: not-allowed;
       }
     }
+    
+
+
+
+
+
+
 
     &__description{
       height: 100%;
@@ -376,6 +445,7 @@
       background-color: #fff;
       font-size: 18px;
       color: #333333;
+      padding-top: 32px;
 
       &__left-button{
         height: 33px;

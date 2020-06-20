@@ -1,0 +1,14 @@
+.wrapper
+  = render partial: "signin/indexHeader"
+  .end-new
+    .end-new__main
+      .end-new__main__top
+        %h2 購入手続き完了
+      .end-new__main__middle
+        .end-new__main__middle__h
+          %h2 購入が完了しました
+        = link_to root_path do
+          .end-new__main__middle__btn
+            トップページに戻る
+  
+  = render partial:"signin/footer"

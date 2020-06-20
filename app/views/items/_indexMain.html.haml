@@ -104,6 +104,13 @@
               .main__pickup__box__lists__list__img
                 - item.images.first(1).each do |image|
                   = image_tag image.src.url, width: "220", height: '150'
+
+
+                    -if item.buyer_id.present? 
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner SOLD
+
+
               .main__pickup__box__lists__list__body
                 .main__pickup__box__lists__list__body__name
                   = item.name
@@ -136,6 +143,15 @@
               .main__pickup__box__lists__list__img
                 - item.images.first(1).each do |image|
                   = image_tag image.src.url, width: "220", height: '150'
+
+
+
+                    -if item.buyer_id.present? 
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner SOLD
+
+
+
               .main__pickup__box__lists__list__body
                 .main__pickup__box__lists__list__body__name
                   = item.name
