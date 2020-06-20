@@ -17,4 +17,11 @@ class Item < ApplicationRecord
   validates :shipping_area,       exclusion: {in: %w(選択してください)},                     presence: true
   validates :shipping_date,       exclusion: {in: %w(選択してください)},                     presence: true
   validates :price,               length: {minimum: 3, maxinum: 7},numericality: { only_integer: true,greater_than: 299, less_than: 10000000}, presence: true
+
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  end
+
 end
