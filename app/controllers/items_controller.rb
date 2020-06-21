@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @parents = Category.all.order("id ASC").limit(13)
     logger.debug @item.errors.inspect
-    if @item.save
+    if @item.save!
       redirect_to root_path
     else
       redirect_to new_item_path
