@@ -92,14 +92,16 @@
         = @item.price
       .exhibition-item__price-box__tax
         （税込み）
-    .exhibition-item__buy-btn       
+    .exhibition-item__buy-btn
       - if user_signed_in? && current_user.id == @item.seller_id
         = link_to "削除する", item_path(@item.id), method: :delete,class:"item-delete-btn"
         = link_to "編集する", edit_item_path(@item.id),class:"item-edit-btn"
       - elsif @item.buyer_id.present? 
         = link_to "売り切れました",root_path,class:"disabled-button bold"
-      - else
+      - elsif user_signed_in?
         = link_to "購入画面に進む", purchase_path(@item.id), class: "item-buy-btn"
+      - else
+        = link_to "ログインしてください",new_user_session_path,class:"disabled-button bold"
     .exhibition-item__description
       = @item.introduction
       .exhibition-item__description__left-button
