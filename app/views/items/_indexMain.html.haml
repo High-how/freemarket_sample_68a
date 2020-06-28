@@ -98,75 +98,29 @@
         = link_to "#" do
           新規投稿商品 
       .main__pickup__box__lists
-        - @items.last(3).each do |item|
+        - @items.each do |item|
           .main__pickup__box__lists__list
             = link_to item_path(item.id) do
               .main__pickup__box__lists__list__img
                 - item.images.first(1).each do |image|
                   = image_tag image.src.url, width: "220", height: '150'
-
-
                     -if item.buyer_id.present? 
                     .items-box_photo__sold
                       .items-box_photo__sold__inner SOLD
+                  %p
+                    ¥
+                    = converting_to_jpy(item.price)
 
 
               .main__pickup__box__lists__list__body
                 .main__pickup__box__lists__list__body__name
                   = item.name
                 .main__pickup__box__lists__list__body__data
-                  .main__pickup__box__lists__list__body__data__box
-                    .main__pickup__box__lists__list__body__data__box__money
-                      %p
-                        ¥
-                        = item.price
-                    .main__pickup__box__lists__list__body__data__like
-                      = icon('fa', 'star')
-                      0
-                  .main__pickup__box__lists__list__body__data__tax
-                    (税込)
+                  .main__pickup__box__lists__list__body__data__like
+                    = icon('fa', 'star')
+                    0
+                  .main__pickup__box__lists__list__body__data__edit
                     - if current_user
                       - if current_user.id == item.seller.id
-                        = link_to '編集', edit_item_path(item)
-                        = link_to '削除', item_path(item), method: :delete
-  .main__pickup
-    .main__pickup__head
-      ピックアップブランド
-    .main__pickup__box
-      .main__pickup__box__head
-        = link_to "#" do
-          アーカイバ
-      .main__pickup__box__lists
-        - @items.last(3).each do |item|
-          .main__pickup__box__lists__list
-            = link_to item_path(item.id) do
-              .main__pickup__box__lists__list__img
-                - item.images.first(1).each do |image|
-                  = image_tag image.src.url, width: "220", height: '150'
-
-
-
-                    -if item.buyer_id.present? 
-                    .items-box_photo__sold
-                      .items-box_photo__sold__inner SOLD
-
-
-
-              .main__pickup__box__lists__list__body
-                .main__pickup__box__lists__list__body__name
-                  = item.name
-                .main__pickup__box__lists__list__body__data
-                  .main__pickup__box__lists__list__body__data__box
-                    .main__pickup__box__lists__list__body__data__money
-                      %p
-                        ¥
-                        = item.price
-                    .main__pickup__box__lists__list__body__data__like
-                      = icon('fa', 'star')
-                      0
-                  .main__pickup__box__lists__list__body__data__tax
-                    (税込)
-                    - if current_user
-                      - if current_user.id == item.seller.id
-                        = link_to '編集', edit_item_path(item)
+                        = link_to '編集', edit_item_path(item), data: {"turbolinks" => false}
                         = link_to '削除', item_path(item), method: :delete

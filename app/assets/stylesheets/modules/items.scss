@@ -114,7 +114,6 @@ ul {
     position: relative;
     padding: 0 60px;
     align-items: center;
-    margin-top: 10px;
     &__content {
       @include boxWidth(100%);
       max-width: 1280px;
@@ -373,6 +372,7 @@ ul {
     &__box {
       &__head {
         text-align: center;
+        padding-bottom: 26px;
         a {
           font-size: 24px;
           text-decoration: none;
@@ -381,10 +381,10 @@ ul {
         }
       }
       &__lists {
-        @include boxWidth(780px);
-        @include display;
-        margin: 26px auto;
-        justify-content: space-around;
+        width: 90%;
+        margin: 0 auto;
+        justify-content: space-between;
+        flex-wrap: wrap;/*回り込み有効化*/
         &__list {
           @include boxWidth(220px);
           display: inline-block;
@@ -394,13 +394,21 @@ ul {
             overflow: hidden;
             margin: 0;
             z-index: auto;
-            .image {
+            p{
               position: absolute;
+              color: white;
+              top: 110px;
+              left: 0;
+              padding: 4px 12px 4px 8px;
+              border-radius: 0 16px 16px 0;
+              font-weight: 600;
+              background-color: rgba(0,0,0,0.3);
+            }
+            .image {
               top: 0;
               left: 0;
               right: 0;
               bottom: 0;
-              width: 100%;
               z-index: auto;
               height: 150px;
               object-fit: cover;
@@ -410,6 +418,7 @@ ul {
             background-color: white;
             color: #333;
             padding: 16px;
+            margin-bottom: 16px;
             &__name {
               overflow: hidden;
               line-height: 1.5;
@@ -418,12 +427,10 @@ ul {
             }
             &__data {
               font-size: 16px;
-              &__box {
-                @include display;
-                align-items: center;
-                justify-content: space-between;
+              &__like {
+                float: right;
               }
-              &__tax {
+              &__edit {
                 font-size: 10px;
                 text-align: left;
               }
