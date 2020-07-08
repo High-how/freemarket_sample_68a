@@ -54,9 +54,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @parents = Category.all.order("id ASC").limit(13)
-    @children = Category.find(params[:parent_id]).children
-    @grand_children = Category.find(params[:child_id]).children
+    @parents = Category.where(ancestry: nil)
   end
 
   private

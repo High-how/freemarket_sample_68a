@@ -53,15 +53,13 @@
             .exhibition-item__main-content__tbody__category-box__category-value__category-2
               = link_to "#" , class: "category-2" do
                 = icon('fas', 'chevron-right')
-                - @children.each do |child|
-                  - if @item.category_id == child.id
-                    = child.name
+                - @parent.children.each do |child|
+                  = child.name
             .exhibition-item__main-content__tbody__category-box__category-value__category-3
               = link_to "#" , class: "category-3" do
                 = icon('fas', 'chevron-right')
-                - @grand_children.each do |grand_child|
-                  - if @item.category_id == grand_child.id
-                    = grand_child.name
+                - @child.children.each do |grand_child|
+                  = grand_child.name
 
 
         .exhibition-item__main-content__tbody__brand-box
